@@ -330,7 +330,14 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           </div>
 
           <div class="console-form-full" style="margin-top: 15px;">
-            <button type="submit" class="cyber-btn cyber-btn-primary" style="width: 100%; justify-content: center;">Transmit Application Dossier</button>
+
+                        <button
+type="button"
+class="cyber-btn cyber-btn-primary"
+style="width:100%;justify-content:center;"
+onclick="window.location.href='404.html'">
+    Trasnmit Application Form
+</button>
           </div>
         </form>
 
@@ -525,6 +532,62 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         selectEl.value = roleName;
       }
     }
+
+    /* ================= APPLICATION FORM VALIDATION ================= */
+
+const appName = document.getElementById("app-name");
+const appEmail = document.getElementById("app-email");
+const appPhone = document.getElementById("app-phone");
+
+/* Name - letters only */
+appName.addEventListener("input", function () {
+    this.value = this.value.replace(/[^a-zA-Z\s]/g, "");
+});
+
+/* Phone - numbers only */
+appPhone.addEventListener("input", function () {
+    this.value = this.value.replace(/[^0-9]/g, "");
+});
+
+/* Email validation */
+appEmail.addEventListener("input", function () {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (this.value !== "" && !emailPattern.test(this.value)) {
+        this.style.border = "1px solid red";
+    } else {
+        this.style.border = "";
+    }
+});
+
+/* Form Submit Validation */
+
+document.getElementById("careers-application-form")
+.addEventListener("submit", function(e){
+
+    const namePattern = /^[A-Za-z\s]+$/;
+    const phonePattern = /^[0-9]{10}$/;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if(!namePattern.test(appName.value)){
+        alert("Name should contain letters only");
+        e.preventDefault();
+        return;
+    }
+
+    if(!phonePattern.test(appPhone.value)){
+        alert("Phone number must contain 10 digits only");
+        e.preventDefault();
+        return;
+    }
+
+    if(!emailPattern.test(appEmail.value)){
+        alert("Enter valid email address");
+        e.preventDefault();
+        return;
+    }
+
+});
   </script>
 </body>
 </html>

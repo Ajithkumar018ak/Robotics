@@ -40,6 +40,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
   <!-- TOPBAR -->
   <header class="topbar">
+    
+    
+       <button class="menu-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
+
     <div>
       <h1>Client Dashboard</h1>
       <p>Welcome Back, John Anderson</p>
@@ -342,7 +348,10 @@ Rapid incident response team.
 
 </main>
 
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
 <script src="./js/client-dashboard.js"></script>
 
 </body>
+
 </html>

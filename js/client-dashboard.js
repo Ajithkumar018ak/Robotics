@@ -209,3 +209,95 @@ function showDashboard() {
 function open404Page() {
     window.location.href = "404client.html";
 }
+
+function toggleSidebar(){
+
+    const sidebar =
+    document.querySelector(".sidebar");
+
+    const overlay =
+    document.querySelector(".sidebar-overlay");
+
+    sidebar.classList.toggle("active");
+    overlay.classList.toggle("active");
+
+    document.body.classList.toggle("sidebar-open");
+}
+
+/* Auto close on menu click */
+
+document
+.querySelectorAll(".sidebar-menu li")
+.forEach(item => {
+
+    item.addEventListener("click", () => {
+
+        if(window.innerWidth <= 768){
+
+            document
+            .querySelector(".sidebar")
+            .classList.remove("active");
+
+            document
+            .querySelector(".sidebar-overlay")
+            .classList.remove("active");
+
+            document.body
+            .classList.remove("sidebar-open");
+        }
+
+    });
+
+});
+
+
+
+
+function toggleSidebar() {
+
+    const sidebar = document.querySelector(".sidebar");
+    const overlay = document.querySelector(".sidebar-overlay");
+
+    sidebar.classList.toggle("active");
+    overlay.classList.toggle("active");
+    document.body.classList.toggle("sidebar-open");
+}
+
+/* Close sidebar when menu clicked */
+
+document.querySelectorAll(".sidebar-menu li[data-page]")
+.forEach(item => {
+
+    item.addEventListener("click", () => {
+
+        const sidebar = document.querySelector(".sidebar");
+        const overlay = document.querySelector(".sidebar-overlay");
+
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+        document.body.classList.remove("sidebar-open");
+    });
+
+});
+
+/* Outside click close */
+
+document.addEventListener("click", function(e){
+
+    const sidebar = document.querySelector(".sidebar");
+    const btn = document.querySelector(".menu-toggle");
+
+    if(
+        window.innerWidth <= 768 &&
+        !sidebar.contains(e.target) &&
+        !btn.contains(e.target)
+    ){
+        sidebar.classList.remove("active");
+        document.querySelector(".sidebar-overlay")
+        .classList.remove("active");
+
+        document.body.classList.remove("sidebar-open");
+    }
+
+});
+

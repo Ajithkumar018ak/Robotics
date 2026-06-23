@@ -165,15 +165,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           <div class="contact-detail-icon"><i data-lucide="mail"></i></div>
           <div class="contact-detail-text">
             <h4>Encrypted Mail Relay</h4>
-            <a href="mailto:connect@aethera.ai">connect@aethera.ai</a>
+            <a href="mailto:connect@aethera.ai">Stacklyrobotics&Animation.com</a>
           </div>
         </div>
 
         <div class="contact-detail-card">
           <div class="contact-detail-icon"><i data-lucide="phone-call"></i></div>
           <div class="contact-detail-text">
-            <h4>Voice Coordinate</h4>
-            <p>+1 (800) 555-CORE</p>
+            <h4>Voice</h4>
+            <p>+91 98764 09456</p>
           </div>
         </div>
 
@@ -203,7 +203,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           <div class="form-group">
             <label for="contact-name">Name</label>
             <div class="form-input-wrapper">
-              <input type="text" id="contact-name" placeholder="ENTER LEGAL NAME" required>
+             <input
+type="text"
+id="contact-name"
+placeholder="ENTER LEGAL NAME"
+pattern="[A-Za-z ]+"
+title="Only letters allowed"
+required>
             </div>
           </div>
 
@@ -224,7 +230,14 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           <div class="form-group">
             <label for="contact-phone">Phone Channel</label>
             <div class="form-input-wrapper">
-              <input type="tel" id="contact-phone" placeholder="ENTER PHONE NUMBER" required>
+         <input
+type="tel"
+id="contact-phone"
+placeholder="ENTER PHONE NUMBER"
+pattern="[0-9]{10}"
+maxlength="10"
+title="Enter 10 digit phone number"
+required>
             </div>
           </div>
 
@@ -258,7 +271,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           </div>
 
           <div class="console-form-full" style="margin-top: 15px;">
-            <button type="submit" class="cyber-btn cyber-btn-primary" style="width: 100%; justify-content: center;">Establish Link Interface</button>
+            <button
+type="button"
+class="cyber-btn cyber-btn-primary"
+style="width:100%;justify-content:center;"
+onclick="window.location.href='404.html'">
+    Establish Link Interface
+</button>
           </div>
         </form>
 
@@ -530,6 +549,48 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   <script>
     // Initialize Lucide Icons
     lucide.createIcons();
+
+    
+// Name - letters only
+document.getElementById("contact-name").addEventListener("input", function () {
+    this.value = this.value.replace(/[^A-Za-z ]/g, "");
+});
+
+// Phone - numbers only
+document.getElementById("contact-phone").addEventListener("input", function () {
+    this.value = this.value.replace(/\D/g, "");
+});
+
+// Form Validation
+document.getElementById("contact-inquiry-form").addEventListener("submit", function(e){
+
+    const name = document.getElementById("contact-name").value.trim();
+    const phone = document.getElementById("contact-phone").value.trim();
+    const email = document.getElementById("contact-email").value.trim();
+
+    const nameRegex = /^[A-Za-z ]+$/;
+    const phoneRegex = /^[0-9]{10}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if(!nameRegex.test(name)){
+        alert("Name should contain only letters");
+        e.preventDefault();
+        return;
+    }
+
+    if(!phoneRegex.test(phone)){
+        alert("Phone number must be 10 digits");
+        e.preventDefault();
+        return;
+    }
+
+    if(!emailRegex.test(email)){
+        alert("Enter valid email address");
+        e.preventDefault();
+        return;
+    }
+
+});
   </script>
 </body>
 </html>
