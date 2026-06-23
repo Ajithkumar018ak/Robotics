@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Aethera Robotics - Initiate system audits, request custom robotics simulations, or schedule consultations.">
+  <title>Contact Us | Aethera Robotics</title>
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Background Layer Core -->
+  <canvas id="bg-canvas"></canvas>
+  <div class="grid-overlay"></div>
+  <div class="scanline"></div>
+
+  <!-- Ambient Glow Orbs -->
+  <div class="glow-orb glow-orb-cyan" style="top: 10%; left: -10%;"></div>
+  <div class="glow-orb glow-orb-violet" style="bottom: 10%; right: -10%;"></div>
+
+  <!-- Cyber Boot Loader -->
+  <div id="cyber-loader">
+    <div class="loader-container">
+      <div class="loader-ring-wrapper">
+        <div class="loader-ring"></div>
+        <div class="loader-ring-inner"></div>
+        <div class="loader-logo-core">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="50,15 80,35 80,65 50,85 20,65 20,35" stroke="currentColor" />
+            <polygon points="50,25 70,40 70,60 50,75 30,60 30,40" stroke="currentColor" />
+            <circle cx="50" cy="50" r="8" fill="currentColor" />
+          </svg>
+        </div>
+      </div>
+      <div class="loader-percent" id="loader-percent">0%</div>
+      <div class="loader-status">BOOTING CONTACT CORE</div>
+      <div class="loader-logs" id="loader-logs">ESTABLISHING TRANSMISSION RELAYS...</div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="header-sticky">
+    <div class="nav-container">
+      <a href="index.html" class="logo-link">
+           <a href="index.html" class="logo">
+    <img src="assets/logo.webp" alt="Aethera Robotics Logo">
+</a>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+          
+          <!-- Services Dropdown -->
+          <li class="nav-item">
+            <a href="services.html" class="nav-link">
+              Services 
+              <i data-lucide="chevron-down" class="dropdown-arrow"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="services.html" class="dropdown-link"><i data-lucide="cpu"></i> Industrial Automation</a></li>
+              <li><a href="services.html" class="dropdown-link"><i data-lucide="git-branch"></i> Robotics Integration</a></li>
+              <li><a href="services.html" class="dropdown-link"><i data-lucide="eye"></i> Machine Vision Systems</a></li>
+              <li><a href="services.html" class="dropdown-link"><i data-lucide="activity"></i> Predictive Analytics</a></li>
+            </ul>
+          </li>
+
+          <!-- Solutions Dropdown (Mega Menu) -->
+          <li class="nav-item">
+            <a href="solutions.html" class="nav-link">
+              Solutions
+              <i data-lucide="chevron-down" class="dropdown-arrow"></i>
+            </a>
+            <div class="dropdown-menu mega-menu">
+              <a href="solutions.html" class="dropdown-link">
+                <div>
+                  <strong>Smart Manufacturing</strong>
+                  <p style="font-size: 11px; margin-top: 4px;">Industry 4.0 production environments.</p>
+                </div>
+              </a>
+              <a href="solutions.html" class="dropdown-link">
+                <div>
+                  <strong>Autonomous Logistics</strong>
+                  <p style="font-size: 11px; margin-top: 4px;">Self-routing systems for warehouses.</p>
+                </div>
+              </a>
+              <a href="solutions.html" class="dropdown-link">
+                <div>
+                  <strong>Aerospace Assembly</strong>
+                  <p style="font-size: 11px; margin-top: 4px;">Sub-millimeter alignment mechanics.</p>
+                </div>
+              </a>
+              <a href="solutions.html" class="dropdown-link">
+                <div>
+                  <strong>Healthcare Assistance</strong>
+                  <p style="font-size: 11px; margin-top: 4px;">Cobotic surgical aid systems.</p>
+                </div>
+              </a>
+            </div>
+          </li>
+
+          <li class="nav-item"><a href="careers.html" class="nav-link">Careers</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- CTA Button -->
+      <a href="contact.html" class="nav-cta">Initiate Setup</a>
+
+      <!-- Mobile Burger -->
+      <button class="mobile-toggle" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay">
+    <ul class="mobile-menu-items">
+      <li><a href="index.html" class="mobile-link">Home</a></li>
+      <li><a href="about.html" class="mobile-link">About Us</a></li>
+      <li><a href="services.html" class="mobile-link">Services</a></li>
+      <li><a href="solutions.html" class="mobile-link">Solutions</a></li>
+      <li><a href="careers.html" class="mobile-link">Careers</a></li>
+      <li><a href="blog.html" class="mobile-link">Blog</a></li>
+      <li><a href="contact.html" class="mobile-link">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- Contact Hero -->
+  <section class="careers-hero" style="min-height: auto; padding-bottom: 40px;">
+    <div class="container">
+      <span class="hero-tag"><span></span> Communication Core</span>
+      <h1 class="hero-title gradient-text-cyan" style="font-size: 3.5rem;">Initiate System integration</h1>
+      <p class="hero-desc" style="max-width: 700px; margin: 0 auto;">
+        Schedule a factory mechatronics audit, query pricing parameters, or connect with our research labs.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Form & Details -->
+  <section style="padding-top: 40px;">
+    <div class="container contact-layout">
+      
+      <!-- Left side: contact details -->
+      <div class="contact-info-panel">
+        <div>
+          <span class="section-tag">Direct Lines</span>
+          <h2 class="section-title gradient-text-violet" style="font-size: 2rem;">Technical Directory</h2>
+        </div>
+        
+        <div class="contact-detail-card">
+          <div class="contact-detail-icon"><i data-lucide="mail"></i></div>
+          <div class="contact-detail-text">
+            <h4>Encrypted Mail Relay</h4>
+            <a href="mailto:connect@aethera.ai">connect@aethera.ai</a>
+          </div>
+        </div>
+
+        <div class="contact-detail-card">
+          <div class="contact-detail-icon"><i data-lucide="phone-call"></i></div>
+          <div class="contact-detail-text">
+            <h4>Voice Coordinate</h4>
+            <p>+1 (800) 555-CORE</p>
+          </div>
+        </div>
+
+        <!-- Headquarters Map Panel -->
+        <div>
+          <span class="section-tag">Physical Coordinates</span>
+          <div class="map-visual-mock">
+            <div class="map-grid-bg"></div>
+            <div class="map-node sf"></div>
+            <div class="map-label sf">SF HQ</div>
+            
+            <div class="map-node munich"></div>
+            <div class="map-label munich">Munich Lab</div>
+
+            <div class="map-node tokyo"></div>
+            <div class="map-label tokyo">Tokyo Core</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side: contact form -->
+      <div class="glass-card">
+        <span class="section-tag" style="margin-bottom: 10px;">Security Transceiver</span>
+        <h3 style="font-size: 1.4rem; margin-bottom: 30px;">Transmit Inquiry Frame</h3>
+
+        <form class="console-form" id="contact-inquiry-form">
+          <div class="form-group">
+            <label for="contact-name">Name</label>
+            <div class="form-input-wrapper">
+              <input type="text" id="contact-name" placeholder="ENTER LEGAL NAME" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-company">Company</label>
+            <div class="form-input-wrapper">
+              <input type="text" id="contact-company" placeholder="ENTER COMPANY UNIT" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-email">Email Coordinate</label>
+            <div class="form-input-wrapper">
+              <input type="email" id="contact-email" placeholder="ENTER EMAIL ADDRESS" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-phone">Phone Channel</label>
+            <div class="form-input-wrapper">
+              <input type="tel" id="contact-phone" placeholder="ENTER PHONE NUMBER" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-industry">Industry Sector</label>
+            <div class="form-input-wrapper">
+              <select id="contact-industry" required>
+                <option value="" disabled selected>SELECT SECTOR VERTICAL</option>
+                <option value="Manufacturing">Manufacturing & Assembly</option>
+                <option value="Automotive">Automotive & Gigafactories</option>
+                <option value="Aerospace">Aerospace Engineering</option>
+                <option value="Logistics">Logistics & Warehousing</option>
+                <option value="Healthcare">Healthcare & Cobotics</option>
+                <option value="Other">Other Advanced Integration</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-subject">Inquiry Subject</label>
+            <div class="form-input-wrapper">
+              <input type="text" id="contact-subject" placeholder="ENTER INQUIRY SUBJECT" required>
+            </div>
+          </div>
+
+          <div class="form-group console-form-full">
+            <label for="contact-message">Inquiry Frame Payload</label>
+            <div class="form-input-wrapper">
+              <textarea id="contact-message" rows="5" placeholder="PROVIDE COMPLETE DETAILS REGARDING PAYLOAD, DRIVE SPACE, OR AUDIT TARGETS..." required></textarea>
+            </div>
+          </div>
+
+          <div class="console-form-full" style="margin-top: 15px;">
+            <button type="submit" class="cyber-btn cyber-btn-primary" style="width: 100%; justify-content: center;">Establish Link Interface</button>
+          </div>
+        </form>
+
+        <!-- Form Success Output Console -->
+        <div class="form-success-console" id="contact-success-console">
+          [13:30:18] COMMENCING SYSTEM REGISTRATION PORTAL...<br>
+          [13:30:19] RESOLVING EMAIL CORRESPONDENTS KEY...<br>
+          [13:30:20] LOGGING TELEMETRY DATA STRUCTURE...<br>
+          [13:30:21] MESSAGE TRANSMITTED ONLINE. CODES RESOLVED: M-808.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Office Locations Grid details -->
+  <section style="background-color: var(--bg-darker); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <span class="section-tag" style="text-align: center; display: block;">Local Bases</span>
+      <h2 class="section-title gradient-text-cyan" style="text-align: center; margin-bottom: 50px;">Global Headquarters</h2>
+      
+      <div class="location-grid">
+        <div class="glass-card location-card">
+          <h4>San Francisco (HQ)</h4>
+          <p>
+            100 Innovation Core Dr.<br>
+            Suite 400<br>
+            San Francisco, CA 94107<br>
+            United States
+          </p>
+        </div>
+        <div class="glass-card location-card" style="border-color: rgba(171,32,253,0.15);">
+          <h4 style="color: var(--accent-violet);">Munich Lab</h4>
+          <p>
+            42 Siemensstraße<br>
+            Building B<br>
+            80333 München<br>
+            Germany
+          </p>
+        </div>
+        <div class="glass-card location-card">
+          <h4>Tokyo Core</h4>
+          <p>
+            1-2-1 Shiba-Daimon<br>
+            Minato-ku<br>
+            Tokyo 105-0012<br>
+            Japan
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cyber FAQ Accordions -->
+  <section class="faq-section">
+    <div class="container">
+      <span class="section-tag" style="text-align: center; display: block;">Support Matrix</span>
+      <h2 class="section-title gradient-text-violet" style="text-align: center; margin-bottom: 50px;">Frequently Queried Parameters</h2>
+
+      <div class="faq-list">
+        
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <div class="faq-header">
+            <h4>What is the typical mechatronics audit duration?</h4>
+            <div class="faq-icon"><i data-lucide="chevron-down"></i></div>
+          </div>
+          <div class="faq-body">
+            <p>Physical factory inspections take 3 to 5 business days, after which we construct simulation twins within 10 days to verify all cycle calculations.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <div class="faq-header">
+            <h4>Are your robotic controllers compatible with legacy PLCs?</h4>
+            <div class="faq-icon"><i data-lucide="chevron-down"></i></div>
+          </div>
+          <div class="faq-body">
+            <p>Yes. Aethera edge engines support standard industrial communication drivers including EtherCAT, Modbus TCP, CANopen, and Profinet links.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <div class="faq-header">
+            <h4>How do you configure collaborative safety parameters?</h4>
+            <div class="faq-icon"><i data-lucide="chevron-down"></i></div>
+          </div>
+          <div class="faq-body">
+            <p>We deploy safety sensor grids and torque scanners running at 100Hz edge clocks, shutting down joints dynamically should human specialists approach boundary loops.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  
+ <!-- =========================
+        FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+        <!-- Brand Section -->
+        <div class="footer-brand">
+
+            <a href="index.html" class="logo">
+                <img src="assets/logo.webp"
+                     alt="Aethera Robotics Logo"
+                     class="footer-logo">
+            </a>
+
+            <p>
+                Designing next-generation robotic systems, AI-driven automation,
+                smart factories, machine vision platforms, and digital twin
+                technologies for global industries.
+            </p>
+
+              <div class="social-icons">
+
+                    <a href="404.html">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a href="404.html">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a href="404.html">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+
+                    <a href="404.html">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        <!-- Navigation -->
+        <div class="footer-links-col">
+
+            <h4>Navigation</h4>
+
+            <ul>
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="about.html">About Us</a></li>
+
+                <li><a href="services.html">Services</a></li>
+
+                <li><a href="solutions.html">Solutions</a></li>
+
+                <li><a href="careers.html">Careers</a></li>
+
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+
+        </div>
+
+        <!-- Services -->
+        <div class="footer-links-col">
+
+            <h4>Services</h4>
+
+            <ul>
+
+                <li><a href="services.html">Industrial Robotics</a></li>
+
+                <li><a href="services.html">Machine Vision</a></li>
+
+                <li><a href="services.html">AI Automation</a></li>
+
+                <li><a href="services.html">Digital Twin Systems</a></li>
+
+                <li><a href="services.html">Predictive Analytics</a></li>
+
+            </ul>
+
+        </div>
+
+       <!-- Contact Information -->
+
+<div class="footer-links-col">
+
+    <h4>Contact Information</h4>
+
+    <ul class="contact-info">
+
+        <li>
+            <i data-lucide="mail"></i>
+            info@Stacklyrobotics&automation.com
+        </li>
+
+        <li>
+            <i data-lucide="phone"></i>
+            +91 98765 43210
+        </li>
+
+        <li>
+            <i data-lucide="map-pin"></i>
+            Chennai, Tamil Nadu, India
+        </li>
+
+    </ul>
+
+</div>
+
+        <!-- Newsletter -->
+        <div class="footer-newsletter">
+
+            <h4>System Updates</h4>
+
+            <p>
+                Subscribe to receive engineering insights,
+                automation trends, robotics innovations,
+                and platform announcements.
+            </p>
+
+            <form class="newsletter-form">
+
+                <input type="email"
+                       placeholder="Enter Corporate Email"
+                       required>
+
+                <button type="submit"
+                        class="newsletter-submit-btn">
+
+                    <i data-lucide="send"></i>
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+
+    <div class="container footer-bottom">
+
+        <div class="footer-copyright">
+            © 2026 StacklyRobotics&Automation.
+            All Rights Reserved.
+        </div>
+
+      
+
+    </div>
+
+</footer>
+
+  <!-- Page Transition Overlay -->
+  <div id="page-transition-overlay"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>

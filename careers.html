@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Careers at Aethera Robotics - Join our research labs and shape next-generation industrial machine intelligence pipelines.">
+  <title>Careers | Aethera Robotics</title>
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Background Layer Core -->
+  <canvas id="bg-canvas"></canvas>
+  <div class="grid-overlay"></div>
+  <div class="scanline"></div>
+
+  <!-- Ambient Glow Orbs -->
+  <div class="glow-orb glow-orb-cyan" style="top: 10%; right: -10%;"></div>
+  <div class="glow-orb glow-orb-violet" style="bottom: 20%; left: -10%;"></div>
+
+  <!-- Cyber Boot Loader -->
+  <div id="cyber-loader">
+    <div class="loader-container">
+      <div class="loader-ring-wrapper">
+        <div class="loader-ring"></div>
+        <div class="loader-ring-inner"></div>
+        <div class="loader-logo-core">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="50,15 80,35 80,65 50,85 20,65 20,35" stroke="currentColor" />
+            <polygon points="50,25 70,40 70,60 50,75 30,60 30,40" stroke="currentColor" />
+            <circle cx="50" cy="50" r="8" fill="currentColor" />
+          </svg>
+        </div>
+      </div>
+      <div class="loader-percent" id="loader-percent">0%</div>
+      <div class="loader-status">BOOTING CAREERS CORE</div>
+      <div class="loader-logs" id="loader-logs">LOADING STAFFING MATRICES...</div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="header-sticky">
+    <div class="nav-container">
+      <a href="index.html" class="logo-link">
+         <a href="index.html" class="logo">
+    <img src="assets/logo.webp" alt="Aethera Robotics Logo">
+</a>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+          
+          <!-- Services Dropdown -->
+          <li class="nav-item">
+            <a href="services.html" class="nav-link">
+              Services 
+              <i data-lucide="chevron-down" class="dropdown-arrow"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="services.html" class="dropdown-link"><i data-lucide="cpu"></i> Industrial Automation</a></li>
+              <li><a href="services.html" class="dropdown-link"><i data-lucide="git-branch"></i> Robotics Integration</a></li>
+              <li><a href="services.html" class="dropdown-link"><i data-lucide="eye"></i> Machine Vision Systems</a></li>
+              <li><a href="services.html" class="dropdown-link"><i data-lucide="activity"></i> Predictive Analytics</a></li>
+            </ul>
+          </li>
+
+          <!-- Solutions Dropdown (Mega Menu) -->
+          <li class="nav-item">
+            <a href="solutions.html" class="nav-link">
+              Solutions
+              <i data-lucide="chevron-down" class="dropdown-arrow"></i>
+            </a>
+            <div class="dropdown-menu mega-menu">
+              <a href="solutions.html" class="dropdown-link">
+                <div>
+                  <strong>Smart Manufacturing</strong>
+                  <p style="font-size: 11px; margin-top: 4px;">Industry 4.0 production environments.</p>
+                </div>
+              </a>
+              <a href="solutions.html" class="dropdown-link">
+                <div>
+                  <strong>Autonomous Logistics</strong>
+                  <p style="font-size: 11px; margin-top: 4px;">Self-routing systems for warehouses.</p>
+                </div>
+              </a>
+              <a href="solutions.html" class="dropdown-link">
+                <div>
+                  <strong>Aerospace Assembly</strong>
+                  <p style="font-size: 11px; margin-top: 4px;">Sub-millimeter alignment mechanics.</p>
+                </div>
+              </a>
+              <a href="solutions.html" class="dropdown-link">
+                <div>
+                  <strong>Healthcare Assistance</strong>
+                  <p style="font-size: 11px; margin-top: 4px;">Cobotic surgical aid systems.</p>
+                </div>
+              </a>
+            </div>
+          </li>
+
+          <li class="nav-item"><a href="careers.html" class="nav-link">Careers</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- CTA Button -->
+      <a href="contact.html" class="nav-cta">Initiate Setup</a>
+
+      <!-- Mobile Burger -->
+      <button class="mobile-toggle" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay">
+    <ul class="mobile-menu-items">
+      <li><a href="index.html" class="mobile-link">Home</a></li>
+      <li><a href="about.html" class="mobile-link">About Us</a></li>
+      <li><a href="services.html" class="mobile-link">Services</a></li>
+      <li><a href="solutions.html" class="mobile-link">Solutions</a></li>
+      <li><a href="careers.html" class="mobile-link">Careers</a></li>
+      <li><a href="blog.html" class="mobile-link">Blog</a></li>
+      <li><a href="contact.html" class="mobile-link">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- Careers Hero -->
+  <section class="careers-hero">
+    <div class="container">
+      <span class="hero-tag"><span></span> Joining Core Labs</span>
+      <h1 class="hero-title gradient-text-cyan">Build Machine Intelligence</h1>
+      <p class="hero-desc">
+        We are seeking specialists in computer vision, robotics control engineering, and distributed simulation algorithms to build the future of physical automation.
+      </p>
+
+      <!-- Benefits / Perks -->
+      <div class="benefits-grid">
+        <div class="benefit-card glass-card">
+          <div class="benefit-icon"><i data-lucide="flask"></i></div>
+          <h3>Advanced R&D Labs</h3>
+          <p>Access to simulation nodes, articulated arm arrays, and computational GPU server clusters.</p>
+        </div>
+        <div class="benefit-card glass-card">
+          <div class="benefit-icon" style="color: var(--accent-violet);"><i data-lucide="heart"></i></div>
+          <h3>Comprehensive Wellness</h3>
+          <p>Complete healthcare cover, mental health resources, and localized fitness support channels.</p>
+        </div>
+        <div class="benefit-card glass-card">
+          <div class="benefit-icon"><i data-lucide="globe"></i></div>
+          <h3>Flexible Locations</h3>
+          <p>Positions available in San Francisco, Munich, and Tokyo, supporting collaborative hybrid work schedules.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Jobs Accordions -->
+  <section class="jobs-section">
+    <div class="container">
+      <span class="section-tag" style="text-align: center; display: block;">Active Opportunities</span>
+      <h2 class="section-title gradient-text-violet" style="text-align: center; margin-bottom: 50px;">Open Engineering Roles</h2>
+
+      <div class="jobs-list">
+        
+        <!-- Job 1 -->
+        <div class="job-item">
+          <div class="job-header">
+            <div class="job-title-box">
+              <h3>Senior AI Controls Scientist</h3>
+              <div class="job-meta-tags">
+                <span class="job-tag-badge">San Francisco</span>
+                <span class="job-tag-badge">AI Core</span>
+                <span class="job-tag-badge">Full-time</span>
+              </div>
+            </div>
+            <div class="job-toggle-icon"><i data-lucide="plus"></i></div>
+          </div>
+          <div class="job-body">
+            <div class="job-description-content">
+              <h4 class="job-section-subtitle">Scope of Directives</h4>
+              <p style="font-size: 0.85rem; margin-bottom: 20px;">
+                You will design, train, and test neural reinforcement models for multi-joint robotic arms, optimizing pathway planning and obstacle avoidance mechanisms.
+              </p>
+              <h4 class="job-section-subtitle">Required Credentials</h4>
+              <ul class="job-bullets">
+                <li>Ph.D. or Master's degree in Computer Science, Robotics, or related fields.</li>
+                <li>3+ years of experience training neural networks (PyTorch, TensorFlow).</li>
+                <li>Strong understanding of C++ and robot simulation stacks (Isaac Sim, Mujoco).</li>
+              </ul>
+              <a href="#apply-anchor" class="cyber-btn cyber-btn-primary" style="padding: 10px 25px; font-size: 0.75rem;" onclick="setTargetRole('Senior AI Controls Scientist')">Apply for Directive</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="job-item">
+          <div class="job-header">
+            <div class="job-title-box">
+              <h3>Robotics Control Engineer</h3>
+              <div class="job-meta-tags">
+                <span class="job-tag-badge">Munich</span>
+                <span class="job-tag-badge">Systems Engineering</span>
+                <span class="job-tag-badge">Full-time</span>
+              </div>
+            </div>
+            <div class="job-toggle-icon"><i data-lucide="plus"></i></div>
+          </div>
+          <div class="job-body">
+            <div class="job-description-content">
+              <h4 class="job-section-subtitle">Scope of Directives</h4>
+              <p style="font-size: 0.85rem; margin-bottom: 20px;">
+                You will configure physical manipulator drive channels, align sensors, write low-level control code (EtherCAT networks), and manage collaborative safety configurations.
+              </p>
+              <h4 class="job-section-subtitle">Required Credentials</h4>
+              <ul class="job-bullets">
+                <li>Bachelor's degree in Mechatronics, Electrical Engineering, or related disciplines.</li>
+                <li>Experience configuring motor controllers, encoder feedback, and industrial fieldbus loops.</li>
+                <li>Expertise writing real-time C or C++ modules under Linux environments.</li>
+              </ul>
+              <a href="#apply-anchor" class="cyber-btn cyber-btn-primary" style="padding: 10px 25px; font-size: 0.75rem;" onclick="setTargetRole('Robotics Control Engineer')">Apply for Directive</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job 3 -->
+        <div class="job-item">
+          <div class="job-header">
+            <div class="job-title-box">
+              <h3>Computer Vision Scientist</h3>
+              <div class="job-meta-tags">
+                <span class="job-tag-badge">Tokyo</span>
+                <span class="job-tag-badge">Computer Vision</span>
+                <span class="job-tag-badge">Full-time</span>
+              </div>
+            </div>
+            <div class="job-toggle-icon"><i data-lucide="plus"></i></div>
+          </div>
+          <div class="job-body">
+            <div class="job-description-content">
+              <h4 class="job-section-subtitle">Scope of Directives</h4>
+              <p style="font-size: 0.85rem; margin-bottom: 20px;">
+                You will implement visual segmentation models scanning components for micro defects, tracking coordinates, and outputting 3D object alignments.
+              </p>
+              <h4 class="job-section-subtitle">Required Credentials</h4>
+              <ul class="job-bullets">
+                <li>Master's degree specializing in Computer Vision, Image Processing, or AI.</li>
+                <li>Hands-on experience deploying OpenCV and deep learning edge models (TensorRT).</li>
+                <li>Familiarity with industrial camera configurations, lighting, and geometric lenses.</li>
+              </ul>
+              <a href="#apply-anchor" class="cyber-btn cyber-btn-primary" style="padding: 10px 25px; font-size: 0.75rem;" onclick="setTargetRole('Computer Vision Scientist')">Apply for Directive</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Console Form -->
+  <section class="application-console" id="apply-anchor">
+    <div class="container">
+      <span class="section-tag">Transmission Form</span>
+      <h2 class="section-title gradient-text-cyan" style="margin-bottom: 30px;">Application Console</h2>
+      
+      <div class="glass-card">
+        <form class="console-form" id="careers-application-form">
+          <div class="form-group">
+            <label for="app-name">Name</label>
+            <div class="form-input-wrapper">
+              <input type="text" id="app-name" placeholder="ENTER LEGAL NAME" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="app-email">Email Address</label>
+            <div class="form-input-wrapper">
+              <input type="email" id="app-email" placeholder="ENTER CORPNET EMAIL" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="app-phone">Phone Coordinate</label>
+            <div class="form-input-wrapper">
+              <input type="tel" id="app-phone" placeholder="ENTER PHONE NUMBER" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="app-role">Target position directive</label>
+            <div class="form-input-wrapper">
+              <select id="app-role" required>
+                <option value="" disabled selected>SELECT POSITION DIRECTIVE</option>
+                <option value="Senior AI Controls Scientist">Senior AI Controls Scientist</option>
+                <option value="Robotics Control Engineer">Robotics Control Engineer</option>
+                <option value="Computer Vision Scientist">Computer Vision Scientist</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group console-form-full">
+            <label for="app-letter">Operational dossier (Cover Letter)</label>
+            <div class="form-input-wrapper">
+              <textarea id="app-letter" rows="5" placeholder="SUMMARIZE YOUR ENGINEERING CAPABILITIES AND RELEVANT INDUSTRIAL WORK..." required></textarea>
+            </div>
+          </div>
+
+          <div class="form-group console-form-full">
+            <label>Resume submission file (PDF)</label>
+            <div class="upload-drag-area" id="resume-drag-area">
+              <input type="file" id="app-resume" accept=".pdf" style="display: none;" required>
+              <i data-lucide="upload-cloud" id="upload-icon"></i>
+              <p id="upload-text">DRAG AND DROP PDF RESUME OR CLICK TO UPLOAD</p>
+              <span>Maximum size: 10MB</span>
+            </div>
+          </div>
+
+          <div class="console-form-full" style="margin-top: 15px;">
+            <button type="submit" class="cyber-btn cyber-btn-primary" style="width: 100%; justify-content: center;">Transmit Application Dossier</button>
+          </div>
+        </form>
+
+        <!-- Form Success Output Console -->
+        <div class="form-success-console" id="app-success-console">
+          [13:30:18] TRANSMISSION PROTOCOL ENGAGED...<br>
+          [13:30:19] UPLOADING RESUME METRIC ARRAY...<br>
+          [13:30:20] VALIDATING ENCRYPTION SIGNATURES...<br>
+          [13:30:21] DOSSIER TRANSMITTED SECURELY. CODES RESOLVED: A-202.
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+ <!-- =========================
+        FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+        <!-- Brand Section -->
+        <div class="footer-brand">
+
+            <a href="index.html" class="logo">
+                <img src="assets/logo.webp"
+                     alt="Aethera Robotics Logo"
+                     class="footer-logo">
+            </a>
+
+            <p>
+                Designing next-generation robotic systems, AI-driven automation,
+                smart factories, machine vision platforms, and digital twin
+                technologies for global industries.
+            </p>
+
+              <div class="social-icons">
+
+                    <a href="404.html">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a href="404.html">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a href="404.html">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+
+                    <a href="404.html">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        <!-- Navigation -->
+        <div class="footer-links-col">
+
+            <h4>Navigation</h4>
+
+            <ul>
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="about.html">About Us</a></li>
+
+                <li><a href="services.html">Services</a></li>
+
+                <li><a href="solutions.html">Solutions</a></li>
+
+                <li><a href="careers.html">Careers</a></li>
+
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+
+        </div>
+
+        <!-- Services -->
+        <div class="footer-links-col">
+
+            <h4>Services</h4>
+
+            <ul>
+
+                <li><a href="services.html">Industrial Robotics</a></li>
+
+                <li><a href="services.html">Machine Vision</a></li>
+
+                <li><a href="services.html">AI Automation</a></li>
+
+                <li><a href="services.html">Digital Twin Systems</a></li>
+
+                <li><a href="services.html">Predictive Analytics</a></li>
+
+            </ul>
+
+        </div>
+
+       <!-- Contact Information -->
+
+<div class="footer-links-col">
+
+    <h4>Contact Information</h4>
+
+    <ul class="contact-info">
+
+        <li>
+            <i data-lucide="mail"></i>
+            info@Stacklyrobotics&automation.com
+        </li>
+
+        <li>
+            <i data-lucide="phone"></i>
+            +91 98765 43210
+        </li>
+
+        <li>
+            <i data-lucide="map-pin"></i>
+            Chennai, Tamil Nadu, India
+        </li>
+
+    </ul>
+
+</div>
+
+        <!-- Newsletter -->
+        <div class="footer-newsletter">
+
+            <h4>System Updates</h4>
+
+            <p>
+                Subscribe to receive engineering insights,
+                automation trends, robotics innovations,
+                and platform announcements.
+            </p>
+
+            <form class="newsletter-form">
+
+                <input type="email"
+                       placeholder="Enter Corporate Email"
+                       required>
+
+                <button type="submit"
+                        class="newsletter-submit-btn">
+
+                    <i data-lucide="send"></i>
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+
+    <div class="container footer-bottom">
+
+        <div class="footer-copyright">
+            © 2026 StacklyRobotics&Automation.
+            All Rights Reserved.
+        </div>
+
+      
+
+    </div>
+
+</footer>
+  <!-- Page Transition Overlay -->
+  <div id="page-transition-overlay"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/careers.js"></script>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Select role trigger
+    function setTargetRole(roleName) {
+      const selectEl = document.getElementById('app-role');
+      if (selectEl) {
+        selectEl.value = roleName;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 - Page Not Found</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#050814,#0b1220);
+    color:#fff;
+    overflow:hidden;
+}
+
+.error-container{
+    text-align:center;
+}
+
+.error-code{
+    font-size:140px;
+    font-weight:800;
+    background:linear-gradient(90deg,#00e5ff,#7c4dff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:float 3s ease-in-out infinite;
+}
+
+.error-title{
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.error-text{
+    color:#94a3b8;
+    margin-bottom:30px;
+}
+
+.back-btn{
+    display:inline-block;
+    padding:12px 25px;
+    border-radius:12px;
+    text-decoration:none;
+    color:#fff;
+    background:linear-gradient(90deg,#00e5ff,#7c4dff);
+    transition:.3s;
+}
+
+.back-btn:hover{
+    transform:translateY(-4px);
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+    100%{transform:translateY(0);}
+}
+</style>
+
+</head>
+<body>
+
+<div class="error-container">
+
+    <div class="error-code">404</div>
+
+    <h1 class="error-title">
+        Page Not Found
+    </h1>
+
+    <p class="error-text">
+        The page you are looking for doesn't exist.
+    </p>
+
+    <a href="client-dashboard.html" class="back-btn">
+        Back To Dashboard
+    </a>
+
+</div>
+
+</body>
+</html>

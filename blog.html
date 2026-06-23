@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aethera Robotics Blog - Insights on computer vision, deep reinforcement learning, and smart factories.">
+  <title>Blog | Aethera Robotics</title>
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Background Layer Core -->
+  <canvas id="bg-canvas"></canvas>
+  <div class="grid-overlay"></div>
+  <div class="scanline"></div>
+
+  <!-- Ambient Glow Orbs -->
+  <div class="glow-orb glow-orb-cyan" style="top: 20%; left: -10%;"></div>
+  <div class="glow-orb glow-orb-violet" style="bottom: 10%; right: -10%;"></div>
+
+  <!-- Cyber Boot Loader -->
+  <div id="cyber-loader">
+    <div class="loader-container">
+      <div class="loader-ring-wrapper">
+        <div class="loader-ring"></div>
+        <div class="loader-ring-inner"></div>
+        <div class="loader-logo-core">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="50,15 80,35 80,65 50,85 20,65 20,35" stroke="currentColor" />
+            <polygon points="50,25 70,40 70,60 50,75 30,60 30,40" stroke="currentColor" />
+            <circle cx="50" cy="50" r="8" fill="currentColor" />
+          </svg>
+        </div>
+      </div>
+      <div class="loader-percent" id="loader-percent">0%</div>
+      <div class="loader-status">BOOTING BLOG CORE</div>
+      <div class="loader-logs" id="loader-logs">LOADING ARTICLE MATRICES...</div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="header-sticky">
+    <div class="nav-container">
+      <a href="index.html" class="logo-link">
+           <a href="index.html" class="logo">
+    <img src="assets/logo.webp" alt="Aethera Robotics Logo">
+</a>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+          
+          <!-- Services Dropdown -->
+          <li class="nav-item">
+            <a href="services.html" class="nav-link">
+              Services 
+              <i data-lucide="chevron-down" class="dropdown-arrow"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="services.html" class="dropdown-link"><i data-lucide="cpu"></i> Industrial Automation</a></li>
+              <li><a href="services.html" class="dropdown-link"><i data-lucide="git-branch"></i> Robotics Integration</a></li>
+              <li><a href="services.html" class="dropdown-link"><i data-lucide="eye"></i> Machine Vision Systems</a></li>
+              <li><a href="services.html" class="dropdown-link"><i data-lucide="activity"></i> Predictive Analytics</a></li>
+            </ul>
+          </li>
+
+          <!-- Solutions Dropdown (Mega Menu) -->
+          <li class="nav-item">
+            <a href="solutions.html" class="nav-link">
+              Solutions
+              <i data-lucide="chevron-down" class="dropdown-arrow"></i>
+            </a>
+            <div class="dropdown-menu mega-menu">
+              <a href="solutions.html" class="dropdown-link">
+                <div>
+                  <strong>Smart Manufacturing</strong>
+                  <p style="font-size: 11px; margin-top: 4px;">Industry 4.0 production environments.</p>
+                </div>
+              </a>
+              <a href="solutions.html" class="dropdown-link">
+                <div>
+                  <strong>Autonomous Logistics</strong>
+                  <p style="font-size: 11px; margin-top: 4px;">Self-routing systems for warehouses.</p>
+                </div>
+              </a>
+              <a href="solutions.html" class="dropdown-link">
+                <div>
+                  <strong>Aerospace Assembly</strong>
+                  <p style="font-size: 11px; margin-top: 4px;">Sub-millimeter alignment mechanics.</p>
+                </div>
+              </a>
+              <a href="solutions.html" class="dropdown-link">
+                <div>
+                  <strong>Healthcare Assistance</strong>
+                  <p style="font-size: 11px; margin-top: 4px;">Cobotic surgical aid systems.</p>
+                </div>
+              </a>
+            </div>
+          </li>
+
+          <li class="nav-item"><a href="careers.html" class="nav-link">Careers</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- CTA Button -->
+      <a href="contact.html" class="nav-cta">Initiate Setup</a>
+
+      <!-- Mobile Burger -->
+      <button class="mobile-toggle" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay">
+    <ul class="mobile-menu-items">
+      <li><a href="index.html" class="mobile-link">Home</a></li>
+      <li><a href="about.html" class="mobile-link">About Us</a></li>
+      <li><a href="services.html" class="mobile-link">Services</a></li>
+      <li><a href="solutions.html" class="mobile-link">Solutions</a></li>
+      <li><a href="careers.html" class="mobile-link">Careers</a></li>
+      <li><a href="blog.html" class="mobile-link">Blog</a></li>
+      <li><a href="contact.html" class="mobile-link">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- Blog Hero -->
+  <section class="careers-hero" style="min-height: auto; padding-bottom: 40px;">
+    <div class="container">
+      <span class="hero-tag"><span></span> Tech Log</span>
+      <h1 class="hero-title gradient-text-cyan" style="font-size: 3.5rem;">Technical Publications</h1>
+      <p class="hero-desc" style="max-width: 700px; margin: 0 auto;">
+        Engineering posts, platform reports, and research reviews from our core automation teams.
+      </p>
+    </div>
+  </section>
+
+  <!-- Articles & Filtering -->
+  <section style="padding-top: 40px;">
+    <div class="container">
+      
+      <!-- Category Filter Tabs -->
+      <ul class="blog-categories" style="display: flex; gap: 15px; list-style: none; justify-content: center; margin-bottom: 50px;">
+        <li><button class="filter-btn active" onclick="filterBlog('all', this)">All Articles</button></li>
+        <li><button class="filter-btn" onclick="filterBlog('ai', this)">AI Core</button></li>
+        <li><button class="filter-btn" onclick="filterBlog('robotics', this)">Robotics</button></li>
+        <li><button class="filter-btn" onclick="filterBlog('automation', this)">Automation</button></li>
+        <li><button class="filter-btn" onclick="filterBlog('smart-factory', this)">Smart Factory</button></li>
+      </ul>
+
+      <!-- Articles Grid -->
+      <div class="blog-grid" id="blog-articles-grid">
+        
+        <!-- Post 1 -->
+        <div class="blog-card" data-category="ai">
+          <div class="blog-visual">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 60px; stroke: var(--accent-cyan); stroke-width: 1.5; fill: none;">
+              <circle cx="50" cy="50" r="30" />
+              <path d="M30 50 H70 M50 30 V70" />
+            </svg>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-meta-category">AI Core</span>
+              <span>June 18, 2026 • 8 Min Read</span>
+            </div>
+            <h3>Simulation-to-Reality Training Pipelines</h3>
+            <p>Training mechatronics controller models inside physical simulations. By leveraging neural networks, we mitigate divergence between simulator models and mechanical components.</p>
+            <div class="blog-author">
+              <div class="blog-author-avatar">EC</div>
+              <div class="blog-author-info">
+                <h5>Dr. Elena Chen</h5>
+                <span>Chief Technology Officer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Post 2 -->
+        <div class="blog-card" data-category="robotics">
+          <div class="blog-visual">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 60px; stroke: var(--accent-violet); stroke-width: 1.5; fill: none;">
+              <rect x="25" y="25" width="50" height="50" rx="6" />
+              <line x1="50" y1="25" x2="50" y2="75" />
+            </svg>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-meta-category">Robotics</span>
+              <span>May 24, 2026 • 6 Min Read</span>
+            </div>
+            <h3>Synchronizing Multi-Axis Manipulators</h3>
+            <p>Analyzing EtherCAT clock synchronization setups. Minimizing network communication latency jitter on multiple mechanical links to guarantee precision tool alignments.</p>
+            <div class="blog-author">
+              <div class="blog-author-avatar">MK</div>
+              <div class="blog-author-info">
+                <h5>Marcus Kross</h5>
+                <span>VP Systems Engineering</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Post 3 -->
+        <div class="blog-card" data-category="automation">
+          <div class="blog-visual">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 60px; stroke: var(--accent-cyan); stroke-width: 1.5; fill: none;">
+              <polygon points="50,15 85,75 15,75" />
+            </svg>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-meta-category">Automation</span>
+              <span>April 12, 2026 • 10 Min Read</span>
+            </div>
+            <h3>Predictive Maintenance & Anomaly Detection</h3>
+            <p>Deploying spectral camera nodes and vibration sensor arrays to continuously audit components wear, scheduling predictive logs updates before mechanical faults occur.</p>
+            <div class="blog-author">
+              <div class="blog-author-avatar">SV</div>
+              <div class="blog-author-info">
+                <h5>Sophia Vance</h5>
+                <span>Chief Operations Officer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+ <!-- =========================
+        FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+        <!-- Brand Section -->
+        <div class="footer-brand">
+
+            <a href="index.html" class="logo">
+                <img src="assets/logo.webp"
+                     alt="Aethera Robotics Logo"
+                     class="footer-logo">
+            </a>
+
+            <p>
+                Designing next-generation robotic systems, AI-driven automation,
+                smart factories, machine vision platforms, and digital twin
+                technologies for global industries.
+            </p>
+
+              <div class="social-icons">
+
+                    <a href="404.html">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a href="404.html">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a href="404.html">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+
+                    <a href="404.html">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        <!-- Navigation -->
+        <div class="footer-links-col">
+
+            <h4>Navigation</h4>
+
+            <ul>
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="about.html">About Us</a></li>
+
+                <li><a href="services.html">Services</a></li>
+
+                <li><a href="solutions.html">Solutions</a></li>
+
+                <li><a href="careers.html">Careers</a></li>
+
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+
+        </div>
+
+        <!-- Services -->
+        <div class="footer-links-col">
+
+            <h4>Services</h4>
+
+            <ul>
+
+                <li><a href="services.html">Industrial Robotics</a></li>
+
+                <li><a href="services.html">Machine Vision</a></li>
+
+                <li><a href="services.html">AI Automation</a></li>
+
+                <li><a href="services.html">Digital Twin Systems</a></li>
+
+                <li><a href="services.html">Predictive Analytics</a></li>
+
+            </ul>
+
+        </div>
+
+       <!-- Contact Information -->
+
+<div class="footer-links-col">
+
+    <h4>Contact Information</h4>
+
+    <ul class="contact-info">
+
+        <li>
+            <i data-lucide="mail"></i>
+            info@Stacklyrobotics&automation.com
+        </li>
+
+        <li>
+            <i data-lucide="phone"></i>
+            +91 98765 43210
+        </li>
+
+        <li>
+            <i data-lucide="map-pin"></i>
+            Chennai, Tamil Nadu, India
+        </li>
+
+    </ul>
+
+</div>
+
+        <!-- Newsletter -->
+        <div class="footer-newsletter">
+
+            <h4>System Updates</h4>
+
+            <p>
+                Subscribe to receive engineering insights,
+                automation trends, robotics innovations,
+                and platform announcements.
+            </p>
+
+            <form class="newsletter-form">
+
+                <input type="email"
+                       placeholder="Enter Corporate Email"
+                       required>
+
+                <button type="submit"
+                        class="newsletter-submit-btn">
+
+                    <i data-lucide="send"></i>
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+
+    <div class="container footer-bottom">
+
+        <div class="footer-copyright">
+            © 2026 StacklyRobotics&Automation.
+            All Rights Reserved.
+        </div>
+
+      
+
+    </div>
+
+</footer>
+  <!-- Page Transition Overlay -->
+  <div id="page-transition-overlay"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Blog filtering controller
+    function filterBlog(category, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.blog-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

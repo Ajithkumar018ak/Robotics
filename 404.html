@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 | Page Not Found</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#050816;
+    --cyan:#00f0ff;
+    --blue:#0066ff;
+    --violet:#ab20fd;
+    --white:#fff;
+    --text:#a8b2d1;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg);
+    color:var(--white);
+    font-family:'Inter',sans-serif;
+    overflow:hidden;
+}
+
+.page-404{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    padding:30px;
+}
+
+canvas{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+}
+
+.content{
+    position:relative;
+    z-index:10;
+    max-width:900px;
+}
+
+.error-code{
+    font-size:180px;
+    font-family:'Orbitron',sans-serif;
+    font-weight:900;
+    line-height:1;
+    color:transparent;
+    -webkit-text-stroke:2px var(--cyan);
+    text-shadow:
+    0 0 20px var(--cyan),
+    0 0 50px var(--cyan);
+    animation:glow 3s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:
+        0 0 20px var(--cyan),
+        0 0 40px var(--cyan);
+    }
+
+    to{
+        text-shadow:
+        0 0 30px var(--cyan),
+        0 0 80px var(--cyan);
+    }
+}
+
+.title{
+    font-size:42px;
+    margin-bottom:20px;
+    font-family:'Orbitron',sans-serif;
+}
+
+.desc{
+    color:var(--text);
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:40px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:16px 34px;
+    border-radius:50px;
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(
+        135deg,
+        var(--cyan),
+        var(--blue)
+    );
+    font-weight:600;
+    transition:.4s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 35px var(--cyan);
+}
+
+.robot{
+    width:120px;
+    margin:0 auto 20px;
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+.scan-line{
+    position:absolute;
+    top:-100%;
+    left:0;
+    width:100%;
+    height:200px;
+    background:linear-gradient(
+        transparent,
+        rgba(0,240,255,.15),
+        transparent
+    );
+    animation:scan 6s linear infinite;
+}
+
+@keyframes scan{
+    100%{
+        top:120%;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="page-404">
+
+<canvas id="particles"></canvas>
+
+<div class="scan-line"></div>
+
+<div class="content">
+
+<div class="robot"></div>
+
+<div class="error-code">404</div>
+
+<h1 class="title">
+SYSTEM ROUTE NOT FOUND
+</h1>
+
+<p class="desc">
+The requested destination does not exist within the Aethera Robotics network.
+Our autonomous navigation system recommends returning to the command center.
+</p>
+
+<a href="index.html" class="btn">
+Return To Home
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const particles=[];
+
+for(let i=0;i<80;i++){
+    particles.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        r:Math.random()*3,
+        dx:(Math.random()-0.5),
+        dy:(Math.random()-0.5)
+    });
+}
+
+function animate(){
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    particles.forEach(p=>{
+
+        p.x+=p.dx;
+        p.y+=p.dy;
+
+        if(p.x<0||p.x>canvas.width)p.dx*=-1;
+        if(p.y<0||p.y>canvas.height)p.dy*=-1;
+
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle="#00f0ff";
+        ctx.fill();
+
+    });
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+window.addEventListener("resize",()=>{
+
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+
+});
+
+</script>
+
+</body>
+</html>

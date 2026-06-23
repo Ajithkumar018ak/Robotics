@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aethera Robotics - Global leader in artificial intelligence, advanced robotics, industrial automation, and digital twin manufacturing solutions.">
+  <title> Robotics & Automation</title>
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+  <!-- Background Layer Core -->
+  <canvas id="bg-canvas"></canvas>
+  <div class="grid-overlay"></div>
+  <div class="scanline"></div>
+
+  <!-- Ambient Glow Orbs -->
+  <div class="glow-orb glow-orb-cyan" style="top: -10%; left: -10%;"></div>
+  <div class="glow-orb glow-orb-violet" style="top: 50%; right: -20%;"></div>
+
+  <!-- Cyber Boot Loader -->
+  <div id="cyber-loader">
+    <div class="loader-container">
+      <div class="loader-ring-wrapper">
+        <div class="loader-ring"></div>
+        <div class="loader-ring-inner"></div>
+        <div class="loader-logo-core">
+          <!-- Custom Tech SVG Core Logo -->
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="50,15 80,35 80,65 50,85 20,65 20,35" stroke="currentColor" />
+            <polygon points="50,25 70,40 70,60 50,75 30,60 30,40" stroke="currentColor" />
+            <circle cx="50" cy="50" r="8" fill="currentColor" />
+          </svg>
+        </div>
+      </div>
+      <div class="loader-percent" id="loader-percent">0%</div>
+      <div class="loader-status">BOOTING AETHERA CORE</div>
+      <div class="loader-logs" id="loader-logs">INITIALIZING QUANTUM TELEMETRY CORE...</div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="header-sticky">
+    <div class="nav-container">
+      <a href="index.html" class="logo-link">
+       <a href="index.html" class="logo">
+    <img src="assets/logo.webp" alt="Aethera Robotics Logo">
+</a>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+          
+          <!-- Dropdown Option 1: Services -->
+          <li class="nav-item">
+            <a href="services.html" class="nav-link">
+              Services 
+              <i data-lucide="chevron-down" class="dropdown-arrow"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="services.html" class="dropdown-link"><i data-lucide="cpu"></i> Industrial Automation</a></li>
+              <li><a href="services.html" class="dropdown-link"><i data-lucide="git-branch"></i> Robotics Integration</a></li>
+              <li><a href="services.html" class="dropdown-link"><i data-lucide="eye"></i> Machine Vision Systems</a></li>
+              <li><a href="services.html" class="dropdown-link"><i data-lucide="activity"></i> Predictive Analytics</a></li>
+            </ul>
+          </li>
+
+          <!-- Dropdown Option 2: Solutions (Mega Menu) -->
+          <li class="nav-item">
+            <a href="solutions.html" class="nav-link">
+              Solutions
+              <i data-lucide="chevron-down" class="dropdown-arrow"></i>
+            </a>
+            <div class="dropdown-menu mega-menu">
+              <a href="solutions.html" class="dropdown-link">
+                <div>
+                  <strong>Smart Manufacturing</strong>
+                  <p style="font-size: 11px; margin-top: 4px;">Industry 4.0 production environments.</p>
+                </div>
+              </a>
+              <a href="solutions.html" class="dropdown-link">
+                <div>
+                  <strong>Autonomous Logistics</strong>
+                  <p style="font-size: 11px; margin-top: 4px;">Self-routing systems for warehouses.</p>
+                </div>
+              </a>
+              <a href="solutions.html" class="dropdown-link">
+                <div>
+                  <strong>Aerospace Assembly</strong>
+                  <p style="font-size: 11px; margin-top: 4px;">Sub-millimeter alignment mechanics.</p>
+                </div>
+              </a>
+              <a href="solutions.html" class="dropdown-link">
+                <div>
+                  <strong>Healthcare Assistance</strong>
+                  <p style="font-size: 11px; margin-top: 4px;">Cobotic surgical aid systems.</p>
+                </div>
+              </a>
+            </div>
+          </li>
+
+          <li class="nav-item"><a href="careers.html" class="nav-link">Careers</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- CTA Button -->
+      <div class="nav-actions">
+
+   <a href="#" class="mobile-login-btn" onclick="openAuth()">Login</a>
+
+    <a href="contact.html" class="nav-cta">
+        Initiate Setup
+    </a>
+
+</div>
+
+      <!-- Mobile Burger -->
+      <button class="mobile-toggle" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay">
+    <ul class="mobile-menu-items">
+      <li><a href="index.html" class="mobile-link">Home</a></li>
+      <li><a href="about.html" class="mobile-link">About Us</a></li>
+      <li><a href="services.html" class="mobile-link">Services</a></li>
+      <li><a href="solutions.html" class="mobile-link">Solutions</a></li>
+      <li><a href="careers.html" class="mobile-link">Careers</a></li>
+      <li><a href="blog.html" class="mobile-link">Blog</a></li>
+      <li><a href="contact.html" class="mobile-link">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-tag">
+        </div>
+        <h1 class="hero-title gradient-text-cyan">
+          Engineering The Future Through Robotics & Intelligent Automation
+        </h1>
+        <p class="hero-desc">
+          Transforming industries with advanced robotics, AI-powered automation, autonomous systems, and next-generation smart manufacturing technologies.
+        </p>
+        <div class="hero-btns">
+          <a href="404.html" class="cyber-btn cyber-btn-primary">Explore Solutions</a>
+          <a href="404.html" class="cyber-btn cyber-btn-secondary">Schedule Consultation</a>
+        </div>
+   
+        <!-- Live Stats Panel -->
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number"><span class="count-number" data-target="350" data-speed="2000">0</span>+</div>
+            <div class="stat-label">Projects Delivered</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number"><span class="count-number" data-target="18" data-speed="1500">0</span></div>
+            <div class="stat-label">Industries Served</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number"><span class="count-number" data-target="99.8" data-speed="2500" data-float="true">0</span>%</div>
+            <div class="stat-label">AI Systems Accuracy</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number"><span class="count-number" data-target="140" data-speed="2000">0</span>+</div>
+            <div class="stat-label">Global Clients</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Interactive Graphic Core -->
+   <!-- Interactive Graphic Core -->
+<div class="hero-visual">
+
+    <div class="hero-glow-ring">
+
+        <div class="hero-glow-ring-inner"></div>
+
+        <div class="hero-robotic-mesh">
+
+            <svg class="hero-mesh-svg"
+                 viewBox="0 0 100 100"
+                 xmlns="http://www.w3.org/2000/svg">
+
+                <path d="M50 5 L90 28 L90 72 L50 95 L10 72 L10 28 Z" fill="none" />
+                <path d="M50 15 L80 32 L80 68 L50 85 L20 68 L20 32 Z" fill="none" />
+                <line x1="50" y1="5" x2="50" y2="95" />
+                <line x1="10" y1="28" x2="90" y2="72" />
+                <line x1="10" y1="72" x2="90" y2="28" />
+                <circle cx="50" cy="50" r="15" fill="none" />
+
+            </svg>
+
+        </div>
+
+    </div>
+
+</div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <span class="section-tag">Corporate DNA</span>
+      <h2 class="section-title gradient-text-violet">Redefining Physical Agency</h2>
+      <p class="section-desc">We merge deep reinforcement learning models with high-durability robotics components to create machines that learn, adapt, and build the infrastructure of tomorrow.</p>
+
+      <!-- Innovation Timeline -->
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <div class="timeline-year">2018</div>
+            <h3 style="margin-bottom: 10px;">The Founding Core</h3>
+            <p style="font-size: 0.85rem;">Aethera Robotics begins operations in San Francisco, developing AI computer vision micro-pipelines for precision electronic components assembly lines.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <div class="timeline-year">2021</div>
+            <h3 style="margin-bottom: 10px;">Integrated Autonomous Agents</h3>
+            <p style="font-size: 0.85rem;">Launch of the Aethera autonomous mobile platforms (AMRs) featuring lidar slam mapping, coordinating real-time sorting loops in mega-fulfillment sites.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <div class="timeline-year">2024</div>
+            <h3 style="margin-bottom: 10px;">Smart Factory Digital Twins</h3>
+            <p style="font-size: 0.85rem;">Unveiling our omni-simulation telemetry portal. Real-world machine networks link to predictive models, enabling downtime projection matrices.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <div class="timeline-year">2026</div>
+            <h3 style="margin-bottom: 10px;">Quantum AI Control Matrix</h3>
+            <p style="font-size: 0.85rem;">Integrating advanced neural transformers executing robotic control pipelines directly on the edge. Safe, collaborative cobots working alongside human specialists.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" style="background-color: var(--bg-darker); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <span class="section-tag">Capabilities & Integration</span>
+      <h2 class="section-title gradient-text-cyan">Precision Engineering Services</h2>
+      <p class="section-desc">Our modular architecture adapts directly to existing industrial spaces, improving output quality and optimizing operational efficiency.</p>
+
+      <div class="services-grid">
+        <!-- Service Card 1 -->
+        <div class="service-card glass-card">
+          <div class="service-icon-box">
+            <i data-lucide="cpu"></i>
+          </div>
+          <h3>Industrial Automation</h3>
+          <p>Total assembly infrastructure layout, mechanical system design, sensor integrations, and edge deployment loops.</p>
+          <a href="services.html" class="service-learn-more">Configure Systems <i data-lucide="arrow-right"></i></a>
+        </div>
+
+        <!-- Service Card 2 -->
+        <div class="service-card glass-card">
+          <div class="service-icon-box">
+            <i data-lucide="git-branch"></i>
+          </div>
+          <h3>Robotics Integration</h3>
+          <p>Deploying smart articulated manipulator systems, automated vehicle grids, and customized payload mechanics.</p>
+          <a href="services.html" class="service-learn-more">Review Platforms <i data-lucide="arrow-right"></i></a>
+        </div>
+
+        <!-- Service Card 3 -->
+        <div class="service-card glass-card">
+          <div class="service-icon-box">
+            <i data-lucide="brain"></i>
+          </div>
+          <h3>AI Core Solutions</h3>
+          <p>Real-time edge control systems utilizing deep reinforcement models, pathing routines, and adaptive controls.</p>
+          <a href="services.html" class="service-learn-more">Inspect AI Core <i data-lucide="arrow-right"></i></a>
+        </div>
+
+        <!-- Service Card 4 -->
+        <div class="service-card glass-card">
+          <div class="service-icon-box">
+            <i data-lucide="eye"></i>
+          </div>
+          <h3>Machine Vision Systems</h3>
+          <p>Spectral cameras, neural object segmentation, and sub-millimeter geometric inspection rigs.</p>
+          <a href="services.html" class="service-learn-more">Explore Vision <i data-lucide="arrow-right"></i></a>
+        </div>
+
+        <!-- Service Card 5 -->
+        <div class="service-card glass-card">
+          <div class="service-icon-box">
+            <i data-lucide="network"></i>
+          </div>
+          <h3>IoT Automation</h3>
+          <p>Deploying sensor network topologies to gather telemetry, environmental variables, and power grids.</p>
+          <a href="services.html" class="service-learn-more">Connect Nodes <i data-lucide="arrow-right"></i></a>
+        </div>
+
+        <!-- Service Card 6 -->
+        <div class="service-card glass-card">
+          <div class="service-icon-box">
+            <i data-lucide="factory"></i>
+          </div>
+          <h3>Smart Factory Suites</h3>
+          <p>Integrated manufacturing software connecting order workflows, simulation environments, and physical assets.</p>
+          <a href="services.html" class="service-learn-more">Deploy Factory <i data-lucide="arrow-right"></i></a>
+        </div>
+
+        <!-- Service Card 7 -->
+        <div class="service-card glass-card">
+          <div class="service-icon-box">
+            <i data-lucide="navigation"></i>
+          </div>
+          <h3>Autonomous Systems</h3>
+          <p>Deploying mobile systems for raw materials logistics, sorting hubs, and rough exterior environments.</p>
+          <a href="services.html" class="service-learn-more">Initialize AMRs <i data-lucide="arrow-right"></i></a>
+        </div>
+
+        <!-- Service Card 8 -->
+        <div class="service-card glass-card">
+          <div class="service-icon-box">
+            <i data-lucide="trending-up"></i>
+          </div>
+          <h3>Predictive Analytics</h3>
+          <p>Predictive anomaly detection mechanisms calculating components life cycle, wear, and system faults.</p>
+          <a href="services.html" class="service-learn-more">Activate Telemetry <i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section id="solutions">
+    <div class="container">
+      <span class="section-tag">Sector Solutions</span>
+      <h2 class="section-title gradient-text-rainbow">Industrial Target Sectors</h2>
+      <p class="section-desc">Tailoring robotics, computer vision, and IoT structures to meet the compliance demands of core international markets.</p>
+
+      <div class="solutions-container">
+        <!-- Sidebar Navigation Tabs -->
+        <div class="solutions-sidebar">
+          <button class="solution-tab-btn active" onclick="switchSolutionTab(event, 'manufacturing')">Manufacturing & Assembly</button>
+          <button class="solution-tab-btn" onclick="switchSolutionTab(event, 'automotive')">Automotive & Gigafactories</button>
+          <button class="solution-tab-btn" onclick="switchSolutionTab(event, 'aerospace')">Aerospace Engineering</button>
+          <button class="solution-tab-btn" onclick="switchSolutionTab(event, 'logistics')">Logistics & Warehousing</button>
+        </div>
+
+        <!-- Tab Panel Content -->
+        <div class="solutions-main-panel glass-card">
+          <!-- Panel 1: Manufacturing -->
+          <div id="manufacturing" class="solution-content-panel active">
+            <div class="solution-panel-grid">
+              <div>
+                <h3 style="font-size: 1.6rem; margin-bottom: 15px;">Smart Assembly Floors</h3>
+                <p>Developing adaptable production environments that coordinate multiple robot agents. Real-time telemetry aligns tool configurations, optimizes resource allocation, and reports cycle details.</p>
+                <div class="solution-panel-stats">
+                  <div class="solution-stat">
+                    <div class="solution-stat-val">42%</div>
+                    <div class="solution-stat-lbl">Throughput Gain</div>
+                  </div>
+                  <div class="solution-stat">
+                    <div class="solution-stat-val">&lt; 15 Min</div>
+                    <div class="solution-stat-lbl">Line Reconfiguration</div>
+                  </div>
+                </div>
+                <a href="404.html" class="cyber-btn cyber-btn-primary" style="padding: 10px 25px; font-size: 0.75rem;">Request Study</a>
+              </div>
+              <div class="solution-visual-mock">
+                <div class="twin-grid-canvas"></div>
+                <div class="twin-model-container">
+                  <div class="twin-graphic">
+                    <i data-lucide="cpu" style="width: 40px; height: 40px; color: var(--accent-cyan);"></i>
+                  </div>
+                  <div class="twin-telemetry">SYS.ACTIVE: 99.98% EFF</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2: Automotive -->
+          <div id="automotive" class="solution-content-panel">
+            <div class="solution-panel-grid">
+              <div>
+                <h3 style="font-size: 1.6rem; margin-bottom: 15px;">Automotive Gigafactories</h3>
+                <p>Deploying heavy-load robotic assemblies for welding, chassis logistics, and battery cell manufacturing. Our system integrates machine vision modules to ensure micro-millimeter precision at high cycle rates.</p>
+                <div class="solution-panel-stats">
+                  <div class="solution-stat">
+                    <div class="solution-stat-val">300t+</div>
+                    <div class="solution-stat-lbl">Daily Raw Output</div>
+                  </div>
+                  <div class="solution-stat">
+                    <div class="solution-stat-val">99.99%</div>
+                    <div class="solution-stat-lbl">Weld Verification</div>
+                  </div>
+                </div>
+                <a href="solutions.html" class="cyber-btn cyber-btn-primary" style="padding: 10px 25px; font-size: 0.75rem;">Request Study</a>
+              </div>
+              <div class="solution-visual-mock">
+                <div class="twin-grid-canvas"></div>
+                <div class="twin-model-container">
+                  <div class="twin-graphic" style="border-color: var(--accent-violet);">
+                    <i data-lucide="car" style="width: 40px; height: 40px; color: var(--accent-violet);"></i>
+                  </div>
+                  <div class="twin-telemetry" style="color: var(--accent-violet);">CELLS CONNECTED: OK</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 3: Aerospace -->
+          <div id="aerospace" class="solution-content-panel">
+            <div class="solution-panel-grid">
+              <div>
+                <h3 style="font-size: 1.6rem; margin-bottom: 15px;">Precision Aerospace Tooling</h3>
+                <p>Implementing specialized drilling, composites layering, and structural inspection robotic platforms. Certified to AS9100 metrics, optimizing production on complex carbon-fiber and titanium structures.</p>
+                <div class="solution-panel-stats">
+                  <div class="solution-stat">
+                    <div class="solution-stat-val">0.02mm</div>
+                    <div class="solution-stat-lbl">Spatial Tolerance</div>
+                  </div>
+                  <div class="solution-stat">
+                    <div class="solution-stat-val">100%</div>
+                    <div class="solution-stat-lbl">Compliance Logged</div>
+                  </div>
+                </div>
+                <a href="solutions.html" class="cyber-btn cyber-btn-primary" style="padding: 10px 25px; font-size: 0.75rem;">Request Study</a>
+              </div>
+              <div class="solution-visual-mock">
+                <div class="twin-grid-canvas"></div>
+                <div class="twin-model-container">
+                  <div class="twin-graphic">
+                    <i data-lucide="plane" style="width: 40px; height: 40px; color: var(--accent-cyan);"></i>
+                  </div>
+                  <div class="twin-telemetry">ALIGNMENT DETECTOR: ACTIVE</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 4: Logistics -->
+          <div id="logistics" class="solution-content-panel">
+            <div class="solution-panel-grid">
+              <div>
+                <h3 style="font-size: 1.6rem; margin-bottom: 15px;">Autonomous Material Distribution</h3>
+                <p>Deploying swarms of autonomous logistics units coordinating via cloud-linked central orchestration models. Dynamic routing system coordinates loading, inventory sorting, and transport loops.</p>
+                <div class="solution-panel-stats">
+                  <div class="solution-stat">
+                    <div class="solution-stat-val">60%</div>
+                    <div class="solution-stat-lbl">Sorting Speed Boost</div>
+                  </div>
+                  <div class="solution-stat">
+                    <div class="solution-stat-val">0</div>
+                    <div class="solution-stat-lbl">Collision Incidence</div>
+                  </div>
+                </div>
+                <a href="solutions.html" class="cyber-btn cyber-btn-primary" style="padding: 10px 25px; font-size: 0.75rem;">Request Study</a>
+              </div>
+              <div class="solution-visual-mock">
+                <div class="twin-grid-canvas"></div>
+                <div class="twin-model-container">
+                  <div class="twin-graphic" style="border-color: var(--accent-violet);">
+                    <i data-lucide="package" style="width: 40px; height: 40px; color: var(--accent-violet);"></i>
+                  </div>
+                  <div class="twin-telemetry" style="color: var(--accent-violet);">GRID ORCHESTRATED: ONLINE</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Section -->
+  <section id="technology" style="background-color: var(--bg-darker); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container tech-section-inner">
+      <div>
+        <span class="section-tag">Tech Architecture</span>
+        <h2 class="section-title gradient-text-cyan">Our core Innovation Engine</h2>
+        <p class="section-desc">We develop intellectual properties across computing stacks. From neural vision modules to low-latency drive interfaces, we build integrated intelligence models.</p>
+        <ul style="list-style: none; margin-top: 20px;" class="job-bullets">
+          <li>Adaptive Reinforcement Controller Interfaces</li>
+          <li>Sub-millisecond Real-Time EtherCAT Drivers</li>
+          <li>Hardware-Accelerated Computer Vision Engines</li>
+          <li>Digital Twin Real-Time Simulation Hubs</li>
+        </ul>
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech-node glass-card glow-cyan">
+          <i data-lucide="brain-circuit" style="color: var(--accent-cyan); margin-bottom: 15px;"></i>
+          <h4>Neural Transformers</h4>
+          <p>Training specialized controls models utilizing deep simulation-to-reality pipelines.</p>
+        </div>
+        <div class="tech-node glass-card glow-violet">
+          <i data-lucide="server" style="color: var(--accent-violet); margin-bottom: 15px;"></i>
+          <h4>Edge Accelerators</h4>
+          <p>Low-draw, GPU-accelerated computing nodes running vision loops directly on physical units.</p>
+        </div>
+        <div class="tech-node glass-card glow-violet">
+          <i data-lucide="binary" style="color: var(--accent-violet); margin-bottom: 15px;"></i>
+          <h4>Digital Twin Telemetry</h4>
+          <p>Dynamic simulation environments replicating physical machines to optimize routes.</p>
+        </div>
+        <div class="tech-node glass-card glow-cyan">
+          <i data-lucide="cable" style="color: var(--accent-cyan); margin-bottom: 15px;"></i>
+          <h4>EtherCAT Core</h4>
+          <p>Microsecond system sync times keeping high-speed multi-axis arrays aligned.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <span class="section-tag">Project Portfolio</span>
+      <h2 class="section-title gradient-text-violet">Global Automation Case Studies</h2>
+      <p class="section-desc">Explore active client integrations where Aethera platforms drive efficiency on assembly lines around the globe.</p>
+
+      <!-- Portfolio Filters -->
+      <ul class="portfolio-filters">
+        <li><button class="filter-btn active" onclick="filterProjects('all', this)">All Projects</button></li>
+        <li><button class="filter-btn" onclick="filterProjects('ai', this)">AI Core</button></li>
+        <li><button class="filter-btn" onclick="filterProjects('robotics', this)">Robotics</button></li>
+        <li><button class="filter-btn" onclick="filterProjects('smart-factory', this)">Smart Factory</button></li>
+      </ul>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid">
+        <!-- Project 1: Giga Berlin -->
+        <div class="project-card" data-category="robotics">
+          <div class="project-visual">
+            <div class="project-img-placeholder">
+              <i data-lucide="factory"></i>
+            </div>
+            <div class="project-overlay">
+              <span class="project-tag">Automotive Logistics</span>
+              <h3>Gigafactory Munich Layout</h3>
+              <p class="project-desc">Deploying 120 AMR load lifters running neural pathfinding modules to coordinate sorting workflows.</p>
+              <div class="project-stats">
+                <div>
+                  <div class="project-stat-num">+45%</div>
+                  <div class="project-stat-lbl">Sorting Speed</div>
+                </div>
+                <div>
+                  <div class="project-stat-num">0.0%</div>
+                  <div class="project-stat-lbl">Incidence Rate</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Aero Struct -->
+        <div class="project-card" data-category="smart-factory">
+          <div class="project-visual">
+            <div class="project-img-placeholder">
+              <i data-lucide="plane-takeoff"></i>
+            </div>
+            <div class="project-overlay">
+              <span class="project-tag">Aerospace Manufacturing</span>
+              <h3>Aerospace Assembly Tooling</h3>
+              <p class="project-desc">Multi-axis robotic precision carbon drilling system verified to tight spatial tolerance limits.</p>
+              <div class="project-stats">
+                <div>
+                  <div class="project-stat-num">0.02mm</div>
+                  <div class="project-stat-lbl">Tolerance</div>
+                </div>
+                <div>
+                  <div class="project-stat-num">100%</div>
+                  <div class="project-stat-lbl">AS9100 Compliance</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Vision inspect -->
+        <div class="project-card" data-category="ai">
+          <div class="project-visual">
+            <div class="project-img-placeholder">
+              <i data-lucide="eye"></i>
+            </div>
+            <div class="project-overlay">
+              <span class="project-tag">Computer Vision AI</span>
+              <h3>Micro-Component Visual Scan</h3>
+              <p class="project-desc">High-speed object identification model scanning microchips for surface faults at high cycle rates.</p>
+              <div class="project-stats">
+                <div>
+                  <div class="project-stat-num">99.98%</div>
+                  <div class="project-stat-lbl">Accuracy</div>
+                </div>
+                <div>
+                  <div class="project-stat-num">&lt; 2ms</div>
+                  <div class="project-stat-lbl">Decision Speed</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section id="why-choose-us" style="background-color: var(--bg-darker); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container compare-container">
+      <div>
+        <span class="section-tag">Performance Indexes</span>
+        <h2 class="section-title gradient-text-cyan">Operational Improvements</h2>
+        <p class="section-desc">We benchmark Aethera integrations against classic automation frameworks. The telemetry reports significant productivity increases.</p>
+
+        <div class="compare-metrics">
+          <div class="metric-bar-wrapper">
+            <div class="metric-header">
+              <span class="metric-name">Robotic Pathing Optimization</span>
+              <span class="metric-val" id="metric-val-1">94%</span>
+            </div>
+            <div class="metric-bar-bg">
+              <div class="metric-bar-fill" data-width="94%"></div>
+            </div>
+          </div>
+          <div class="metric-bar-wrapper">
+            <div class="metric-header">
+              <span class="metric-name">Precision Control Accuracy</span>
+              <span class="metric-val" id="metric-val-2">99.8%</span>
+            </div>
+            <div class="metric-bar-bg">
+              <div class="metric-bar-fill" data-width="99.8%"></div>
+            </div>
+          </div>
+          <div class="metric-bar-wrapper">
+            <div class="metric-header">
+              <span class="metric-name">Manufacturing Cost Reduction</span>
+              <span class="metric-val" id="metric-val-3">60%</span>
+            </div>
+            <div class="metric-bar-bg">
+              <div class="metric-bar-fill" data-width="60%"></div>
+            </div>
+          </div>
+          <div class="metric-bar-wrapper">
+            <div class="metric-header">
+              <span class="metric-name">Real-Time Sync Index</span>
+              <span class="metric-val" id="metric-val-4">88%</span>
+            </div>
+            <div class="metric-bar-bg">
+              <div class="metric-bar-fill" data-width="88%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Circular SVG gauge -->
+      <div class="compare-radial">
+        <div class="circular-chart-box">
+          <svg viewBox="0 0 36 36" class="circular-chart">
+            <defs>
+              <linearGradient id="cyan-violet-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="var(--accent-cyan)" />
+                <stop offset="100%" stop-color="var(--accent-violet)" />
+              </linearGradient>
+            </defs>
+            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            <path class="circle-fill" data-percentage="92" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+          </svg>
+          <div class="chart-percentage">92%</div>
+        </div>
+        <div style="text-align: center;">
+          <h4 class="chart-label">Mean Productivity Gain</h4>
+          <p style="font-size: 0.8rem; margin-top: 8px;">Averaged across 200+ active factories.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <div class="container">
+      <span class="section-tag">System Validation</span>
+      <h2 class="section-title gradient-text-rainbow">Partner Testimonials</h2>
+      <p class="section-desc">Read feedback from operations directors who integrated Aethera platforms on their assembly floors.</p>
+
+      <div class="testimonials-slider">
+        <div class="testimonial-track" id="testimonial-track">
+          <!-- Slide 1 -->
+          <div class="testimonial-slide glass-card">
+            <p class="testimonial-quote">"Aethera's vision systems integrated into our micro-component assembly floor instantly. Fault identification rates rose to 99.98%, reducing component waste within 30 days of deployment."</p>
+            <div class="testimonial-client">
+              <div class="client-img-placeholder">HM</div>
+              <div class="client-details">
+                <h4>Helena M.</h4>
+                <span>VP Operations, Micro-Tech Corp</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="testimonial-slide glass-card">
+            <p class="testimonial-quote">"Deploying the Aethera AMR sorting robots on our shipping warehouse floor optimized throughput times. The autonomous routing system operates without issue alongside our loaders."</p>
+            <div class="testimonial-client">
+              <div class="client-img-placeholder">DK</div>
+              <div class="client-details">
+                <h4>David K.</h4>
+                <span>Logistics Director, Global Cargo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="prev-testi" onclick="slideTestimonials(-1)"><i data-lucide="arrow-left"></i></button>
+          <button class="carousel-btn" id="next-testi" onclick="slideTestimonials(1)"><i data-lucide="arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- =========================
+        FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+        <!-- Brand Section -->
+        <div class="footer-brand">
+
+            <a href="index.html" class="logo">
+                <img src="assets/logo.webp"
+                     alt="Aethera Robotics Logo"
+                     class="footer-logo">
+            </a>
+
+            <p>
+                Designing next-generation robotic systems, AI-driven automation,
+                smart factories, machine vision platforms, and digital twin
+                technologies for global industries.
+            </p>
+
+              <div class="social-icons">
+
+                    <a href="404.html">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a href="404.html">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a href="404.html">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+
+                    <a href="404.html">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        <!-- Navigation -->
+        <div class="footer-links-col">
+
+            <h4>Navigation</h4>
+
+            <ul>
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="about.html">About Us</a></li>
+
+                <li><a href="services.html">Services</a></li>
+
+                <li><a href="solutions.html">Solutions</a></li>
+
+                <li><a href="careers.html">Careers</a></li>
+
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+
+        </div>
+
+        <!-- Services -->
+        <div class="footer-links-col">
+
+            <h4>Services</h4>
+
+            <ul>
+
+                <li><a href="services.html">Industrial Robotics</a></li>
+
+                <li><a href="services.html">Machine Vision</a></li>
+
+                <li><a href="services.html">AI Automation</a></li>
+
+                <li><a href="services.html">Digital Twin Systems</a></li>
+
+                <li><a href="services.html">Predictive Analytics</a></li>
+
+            </ul>
+
+        </div>
+
+       <!-- Contact Information -->
+
+<div class="footer-links-col">
+
+    <h4>Contact Information</h4>
+
+    <ul class="contact-info">
+
+        <li>
+            <i data-lucide="mail"></i>
+            info@Stacklyrobotics&automation.com
+        </li>
+
+        <li>
+            <i data-lucide="phone"></i>
+            +91 98765 43210
+        </li>
+
+        <li>
+            <i data-lucide="map-pin"></i>
+            Chennai, Tamil Nadu, India
+        </li>
+
+    </ul>
+
+</div>
+
+        <!-- Newsletter -->
+        <div class="footer-newsletter">
+
+            <h4>System Updates</h4>
+
+            <p>
+                Subscribe to receive engineering insights,
+                automation trends, robotics innovations,
+                and platform announcements.
+            </p>
+
+            <form class="newsletter-form">
+
+                <input type="email"
+                       placeholder="Enter Corporate Email"
+                       required>
+
+                <button type="submit"
+                        class="newsletter-submit-btn">
+
+                    <i data-lucide="send"></i>
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+
+    <div class="container footer-bottom">
+
+        <div class="footer-copyright">
+            © 2026 StacklyRobotics&Automation.
+            All Rights Reserved.
+        </div>
+
+      
+
+    </div>
+
+</footer>
+
+
+
+<!-- LOGIN MODAL -->
+<div class="auth-modal" id="loginModal">
+
+    <div class="auth-box">
+
+        <div class="auth-left">
+
+            <span class="close" onclick="closeAuth()">&times;</span>
+
+            <h2>Welcome Back</h2>
+
+            <!-- LOGIN -->
+            <div id="loginBox">
+
+                <select id="loginRole">
+                    <option value="Client">Client</option>
+                    <option value="Admin">Admin</option>
+                </select>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Email Address">
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Password">
+
+                <div class="remember-wrap">
+                    <label class="remember-me">
+                        <input type="checkbox" id="rememberMe">
+                        <span>Remember Me</span>
+                    </label>
+                </div>
+
+                <button onclick="loginUser()">
+                    Log In
+                </button>
+
+                <p onclick="showForgot()">
+                    Forgot Password?
+                </p>
+
+                <p onclick="showSignup()">
+                    Don't have an account? Sign Up
+                </p>
+
+            </div>
+
+            <!-- SIGNUP -->
+            <div id="signupBox" style="display:none;">
+
+                <input
+                    type="text"
+                    id="signupName"
+                    placeholder="Full Name">
+
+                <input
+                    type="email"
+                    id="signupEmail"
+                    placeholder="Email Address">
+
+                <input
+                    type="password"
+                    id="signupPassword"
+                    placeholder="Password">
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm Password">
+
+                <select id="signupRole">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+
+                <button onclick="signupUser()">
+                    Create Account
+                </button>
+
+                <p onclick="showLogin()">
+                    Back To Login
+                </p>
+
+            </div>
+
+            <!-- FORGOT PASSWORD -->
+            <div id="forgotBox" style="display:none;">
+
+                <input
+                    type="email"
+                    id="forgotEmail"
+                    placeholder="Enter Your Email">
+
+                <button onclick="forgotPassword()">
+                    Reset Password
+                </button>
+
+                <p onclick="showLogin()">
+                    Back To Login
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+  <!-- Page Transition Overlay -->
+  <div id="page-transition-overlay"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    /* --- Inline Interaction Controllers (Transitions only, no animations yet) --- */
+
+    // Switch solution tabs
+    function switchSolutionTab(event, solutionId) {
+      // Deactivate all tabs and panels
+      document.querySelectorAll('.solution-tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.solution-content-panel').forEach(panel => panel.classList.remove('active'));
+      
+      // Activate clicked tab and corresponding panel
+      event.currentTarget.classList.add('active');
+      document.getElementById(solutionId).classList.add('active');
+    }
+
+    // Projects category filtering
+    function filterProjects(category, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.project-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Testimonial sliding tracks
+    let currentSlide = 0;
+    function slideTestimonials(direction) {
+      const track = document.getElementById('testimonial-track');
+      const slides = document.querySelectorAll('.testimonial-slide');
+      const totalSlides = slides.length;
+      
+      currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+      const offset = currentSlide * -100;
+      
+      // Responsive slide translation adjustments
+      if (window.innerWidth > 768) {
+        // Translation for split slide structure
+        const slideWidth = slides[0].getBoundingClientRect().width + 30; // slide width + margin
+        track.style.transform = `translateX(${-currentSlide * slideWidth}px)`;
+      } else {
+        track.style.transform = `translateX(${offset}%)`;
+      }
+    }
+  </script>
+</body>
+</html>

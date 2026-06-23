@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aethera Robotics Solutions - High-performance automation solutions for manufacturing, aerospace, automotive, logistics, and healthcare.">
+  <title>Solutions | Aethera Robotics</title>
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Background Layer Core -->
+  <canvas id="bg-canvas"></canvas>
+  <div class="grid-overlay"></div>
+  <div class="scanline"></div>
+
+  <!-- Ambient Glow Orbs -->
+  <div class="glow-orb glow-orb-cyan" style="top: 30%; left: -10%;"></div>
+  <div class="glow-orb glow-orb-violet" style="bottom: 10%; right: -10%;"></div>
+
+  <!-- Cyber Boot Loader -->
+  <div id="cyber-loader">
+    <div class="loader-container">
+      <div class="loader-ring-wrapper">
+        <div class="loader-ring"></div>
+        <div class="loader-ring-inner"></div>
+        <div class="loader-logo-core">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="50,15 80,35 80,65 50,85 20,65 20,35" stroke="currentColor" />
+            <polygon points="50,25 70,40 70,60 50,75 30,60 30,40" stroke="currentColor" />
+            <circle cx="50" cy="50" r="8" fill="currentColor" />
+          </svg>
+        </div>
+      </div>
+      <div class="loader-percent" id="loader-percent">0%</div>
+      <div class="loader-status">BOOTING SOLUTIONS CORE</div>
+      <div class="loader-logs" id="loader-logs">MOUNTING DATA PIPELINES...</div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="header-sticky">
+    <div class="nav-container">
+      <a href="index.html" class="logo-link">
+         <a href="index.html" class="logo">
+    <img src="assets/logo.webp" alt="Aethera Robotics Logo">
+</a>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+          
+          <!-- Services Dropdown -->
+          <li class="nav-item">
+            <a href="services.html" class="nav-link">
+              Services 
+              <i data-lucide="chevron-down" class="dropdown-arrow"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="services.html" class="dropdown-link"><i data-lucide="cpu"></i> Industrial Automation</a></li>
+              <li><a href="services.html" class="dropdown-link"><i data-lucide="git-branch"></i> Robotics Integration</a></li>
+              <li><a href="services.html" class="dropdown-link"><i data-lucide="eye"></i> Machine Vision Systems</a></li>
+              <li><a href="services.html" class="dropdown-link"><i data-lucide="activity"></i> Predictive Analytics</a></li>
+            </ul>
+          </li>
+
+          <!-- Solutions Dropdown (Mega Menu) -->
+          <li class="nav-item">
+            <a href="solutions.html" class="nav-link">
+              Solutions
+              <i data-lucide="chevron-down" class="dropdown-arrow"></i>
+            </a>
+            <div class="dropdown-menu mega-menu">
+              <a href="solutions.html" class="dropdown-link">
+                <div>
+                  <strong>Smart Manufacturing</strong>
+                  <p style="font-size: 11px; margin-top: 4px;">Industry 4.0 production environments.</p>
+                </div>
+              </a>
+              <a href="solutions.html" class="dropdown-link">
+                <div>
+                  <strong>Autonomous Logistics</strong>
+                  <p style="font-size: 11px; margin-top: 4px;">Self-routing systems for warehouses.</p>
+                </div>
+              </a>
+              <a href="solutions.html" class="dropdown-link">
+                <div>
+                  <strong>Aerospace Assembly</strong>
+                  <p style="font-size: 11px; margin-top: 4px;">Sub-millimeter alignment mechanics.</p>
+                </div>
+              </a>
+              <a href="solutions.html" class="dropdown-link">
+                <div>
+                  <strong>Healthcare Assistance</strong>
+                  <p style="font-size: 11px; margin-top: 4px;">Cobotic surgical aid systems.</p>
+                </div>
+              </a>
+            </div>
+          </li>
+
+          <li class="nav-item"><a href="careers.html" class="nav-link">Careers</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- CTA Button -->
+      <a href="contact.html" class="nav-cta">Initiate Setup</a>
+
+      <!-- Mobile Burger -->
+      <button class="mobile-toggle" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay">
+    <ul class="mobile-menu-items">
+      <li><a href="index.html" class="mobile-link">Home</a></li>
+      <li><a href="about.html" class="mobile-link">About Us</a></li>
+      <li><a href="services.html" class="mobile-link">Services</a></li>
+      <li><a href="solutions.html" class="mobile-link">Solutions</a></li>
+      <li><a href="careers.html" class="mobile-link">Careers</a></li>
+      <li><a href="blog.html" class="mobile-link">Blog</a></li>
+      <li><a href="contact.html" class="mobile-link">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- Solutions Hero -->
+  <section class="careers-hero" style="min-height: auto; padding-bottom: 40px;">
+    <div class="container">
+      <span class="hero-tag"><span></span> Sector Implementations</span>
+      <h1 class="hero-title gradient-text-cyan" style="font-size: 3.5rem;">Industrial Target Sectors</h1>
+      <p class="hero-desc" style="max-width: 700px; margin: 0 auto;">
+        Deploying high-precision physical robotics, computer vision AI, and analytics grids across international manufacturing verticals.
+      </p>
+    </div>
+  </section>
+
+  <!-- Live Telemetry Simulator Panel -->
+  <section style="padding-top: 20px;">
+    <div class="container">
+      <span class="section-tag">Simulation Sandbox</span>
+      <h2 class="section-title gradient-text-violet">Digital Twin Orchestrator</h2>
+      <p class="section-desc">Active telemetry simulation loop showing load metrics, heat thresholds, and motor sync indicators across factory grids.</p>
+
+      <div class="glass-card" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: stretch;">
+        
+        <!-- Live telemetry logs console -->
+        <div style="font-family: monospace; font-size: 12px; color: var(--accent-cyan); background-color: var(--bg-darker); border-radius: 8px; padding: 25px; border: 1px solid var(--glass-border); display: flex; flex-direction: column; justify-content: space-between; min-height: 350px;">
+          <div>
+            <div style="border-bottom: 1px solid rgba(0,240,255,0.1); padding-bottom: 10px; margin-bottom: 15px; display: flex; justify-content: space-between;">
+              <span>SYSTEM: AETHERA_TWIN_SIM_v1.0</span>
+              <span style="color: var(--accent-violet);">GRID_ONLINE</span>
+            </div>
+            <div id="sim-log-output" style="max-height: 240px; overflow-y: auto; line-height: 1.8;">
+              [13:30:18] ESTABLISHING CONNECTION TO TELEMETRY CORE...<br>
+              [13:30:19] SIMULATION CHANNELS LINKED SUCCESSFULLY.<br>
+              [13:30:20] COBATIC JOINT SYNC: VALIDATED.<br>
+              [13:30:21] STREAMING LOAD DATA CONTROLLER...
+            </div>
+          </div>
+          <div style="display: flex; gap: 15px; border-top: 1px solid rgba(0,240,255,0.1); padding-top: 15px; margin-top: 15px;">
+            <div>SYNC_LOCK: <span id="telemetry-sync">99.8%</span></div>
+            <div>TEMP_THRESHOLD: <span id="telemetry-temp">42.5°C</span></div>
+            <div>CYCLE_EFF: <span id="telemetry-eff">99.98%</span></div>
+          </div>
+        </div>
+
+        <!-- Simulation graphic widget controls -->
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+          <div class="twin-graphic" id="simulator-graphic" style="width: 160px; height: 160px;">
+            <i data-lucide="activity" style="width: 50px; height: 50px; color: var(--accent-cyan); animation: pulse-core 2s infinite;"></i>
+          </div>
+          <h4 style="margin-top: 25px; margin-bottom: 10px;">Simulation Engine Status</h4>
+          <p style="font-size: 0.8rem; margin-bottom: 25px;">Adjust target cycle parameters or reset telemetry logs console matrix.</p>
+          <div style="display: flex; gap: 10px;">
+            <button class="cyber-btn cyber-btn-primary" style="padding: 8px 18px; font-size: 0.7rem;" onclick="triggerSimAlert()">Inject Fault</button>
+            <button class="cyber-btn cyber-btn-secondary" style="padding: 8px 18px; font-size: 0.7rem;" onclick="resetSimConsole()">Clear Logs</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries Detailed Grid -->
+  <section style="background-color: var(--bg-darker); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <span class="section-tag">Target Verticals</span>
+      <h2 class="section-title gradient-text-cyan">Vertical Implementation Guides</h2>
+      <p class="section-desc">We structure automation parameters to comply with target industry safety and audit directives.</p>
+
+      <div class="services-grid">
+        <!-- Vertical 1 -->
+        <div class="service-card glass-card">
+          <div class="service-icon-box"><i data-lucide="factory"></i></div>
+          <h3>Manufacturing & Assembly</h3>
+          <p>Automated assembly, precision component routing, pick-and-place lines, and continuous visual inspect arrays.</p>
+        </div>
+
+        <!-- Vertical 2 -->
+        <div class="service-card glass-card">
+          <div class="service-icon-box" style="color: var(--accent-violet); border-color: rgba(171,32,253,0.15);"><i data-lucide="car"></i></div>
+          <h3>Automotive & Gigafactories</h3>
+          <p>Articulated welding rigs, high-payload chassis sorters, and battery component visual checks.</p>
+        </div>
+
+        <!-- Vertical 3 -->
+        <div class="service-card glass-card">
+          <div class="service-icon-box"><i data-lucide="plane"></i></div>
+          <h3>Aerospace Assembly</h3>
+          <p>AS9100-compliant composites layering, micro-tolerance wing structural assembly, and spatial sensors.</p>
+        </div>
+
+        <!-- Vertical 4 -->
+        <div class="service-card glass-card">
+          <div class="service-icon-box" style="color: var(--accent-violet); border-color: rgba(171,32,253,0.15);"><i data-lucide="heart-pulse"></i></div>
+          <h3>Healthcare & Cobotics</h3>
+          <p>Active tactile-feedback surgical aids, cleanroom material loaders, and visual packaging inspect arrays.</p>
+        </div>
+
+        <!-- Vertical 5 -->
+        <div class="service-card glass-card">
+          <div class="service-icon-box"><i data-lucide="package"></i></div>
+          <h3>Logistics & Warehousing</h3>
+          <p>Lidar-coordinated AMR lifters, sorting lines, container stacking arrays, and cloud fleet controls.</p>
+        </div>
+
+        <!-- Vertical 6 -->
+        <div class="service-card glass-card">
+          <div class="service-icon-box" style="color: var(--accent-violet); border-color: rgba(171,32,253,0.15);"><i data-lucide="fuel"></i></div>
+          <h3>Energy Infrastructure</h3>
+          <p>Subsea pipeline inspection manipulators, automated visual rig diagnostics, and remote valve controller switches.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+ <!-- =========================
+        FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+        <!-- Brand Section -->
+        <div class="footer-brand">
+
+            <a href="index.html" class="logo">
+                <img src="assets/logo.webp"
+                     alt="Aethera Robotics Logo"
+                     class="footer-logo">
+            </a>
+
+            <p>
+                Designing next-generation robotic systems, AI-driven automation,
+                smart factories, machine vision platforms, and digital twin
+                technologies for global industries.
+            </p>
+
+              <div class="social-icons">
+
+                    <a href="404.html">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a href="404.html">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a href="404.html">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+
+                    <a href="404.html">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        <!-- Navigation -->
+        <div class="footer-links-col">
+
+            <h4>Navigation</h4>
+
+            <ul>
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="about.html">About Us</a></li>
+
+                <li><a href="services.html">Services</a></li>
+
+                <li><a href="solutions.html">Solutions</a></li>
+
+                <li><a href="careers.html">Careers</a></li>
+
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+
+        </div>
+
+        <!-- Services -->
+        <div class="footer-links-col">
+
+            <h4>Services</h4>
+
+            <ul>
+
+                <li><a href="services.html">Industrial Robotics</a></li>
+
+                <li><a href="services.html">Machine Vision</a></li>
+
+                <li><a href="services.html">AI Automation</a></li>
+
+                <li><a href="services.html">Digital Twin Systems</a></li>
+
+                <li><a href="services.html">Predictive Analytics</a></li>
+
+            </ul>
+
+        </div>
+
+       <!-- Contact Information -->
+
+<div class="footer-links-col">
+
+    <h4>Contact Information</h4>
+
+    <ul class="contact-info">
+
+        <li>
+            <i data-lucide="mail"></i>
+            info@Stacklyrobotics&automation.com
+        </li>
+
+        <li>
+            <i data-lucide="phone"></i>
+            +91 98765 43210
+        </li>
+
+        <li>
+            <i data-lucide="map-pin"></i>
+            Chennai, Tamil Nadu, India
+        </li>
+
+    </ul>
+
+</div>
+
+        <!-- Newsletter -->
+        <div class="footer-newsletter">
+
+            <h4>System Updates</h4>
+
+            <p>
+                Subscribe to receive engineering insights,
+                automation trends, robotics innovations,
+                and platform announcements.
+            </p>
+
+            <form class="newsletter-form">
+
+                <input type="email"
+                       placeholder="Enter Corporate Email"
+                       required>
+
+                <button type="submit"
+                        class="newsletter-submit-btn">
+
+                    <i data-lucide="send"></i>
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+
+    <div class="container footer-bottom">
+
+        <div class="footer-copyright">
+            © 2026 StacklyRobotics&Automation.
+            All Rights Reserved.
+        </div>
+
+      
+
+    </div>
+
+</footer>
+
+  <!-- Page Transition Overlay -->
+  <div id="page-transition-overlay"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    /* --- Simulator Data Simulation Loop --- */
+    const logsConsole = document.getElementById('sim-log-output');
+    const syncVal = document.getElementById('telemetry-sync');
+    const tempVal = document.getElementById('telemetry-temp');
+    const effVal = document.getElementById('telemetry-eff');
+    const simGraphic = document.getElementById('simulator-graphic');
+    
+    const randomLogs = [
+      'AMR_04: RE-ROUTING COMPLETED. DISTANCE TO STAGING: 12m',
+      'VISION_ARM_3: ANOMALY CLASSIFIER SCORE: 0.001 (PASS)',
+      'TEMPERATURE CHECK: COBATIC CHASSIS SECTOR B SECURE',
+      'ETHERCAT NETWORK: latency jitter 0.04ms (STABLE)',
+      'DRIVE INTERFACE: MOTOR SYNC CURRENT: 14.2A',
+      'SIMULATION CORRECTION: TWIN DIVERGENCE COMPENSATED'
+    ];
+
+    setInterval(() => {
+      // Append random telemetry logs
+      if (logsConsole) {
+        const date = new Date();
+        const timeStr = `[${String(date.getHours()).padStart(2,'0')}:${String(date.getMinutes()).padStart(2,'0')}:${String(date.getSeconds()).padStart(2,'0')}]`;
+        const log = randomLogs[Math.floor(Math.random() * randomLogs.length)];
+        
+        logsConsole.innerHTML += `<br>${timeStr} ${log}`;
+        logsConsole.scrollTop = logsConsole.scrollHeight;
+
+        // Randomize sensor telemetry values slightly
+        syncVal.textContent = `${(99.6 + Math.random() * 0.35).toFixed(2)}%`;
+        tempVal.textContent = `${(41.0 + Math.random() * 3.5).toFixed(1)}°C`;
+        effVal.textContent = `${(99.95 + Math.random() * 0.04).toFixed(3)}%`;
+      }
+    }, 2500);
+
+    function triggerSimAlert() {
+      if (logsConsole) {
+        const date = new Date();
+        const timeStr = `[${String(date.getHours()).padStart(2,'0')}:${String(date.getMinutes()).padStart(2,'0')}:${String(date.getSeconds()).padStart(2,'0')}]`;
+        
+        logsConsole.innerHTML += `<br><span style="color: var(--accent-violet);">${timeStr} [ALERT] FAULT INJECTED: TESTING MOTOR THERMAL FAILS SAFE PROTOCOLS...</span>`;
+        logsConsole.innerHTML += `<br><span style="color: var(--accent-cyan);">${timeStr} MOTOR JOINT 4 SHUTDOWN TRIGGERED: SAFE COOLDOWN RESPONSE ACTIVE.</span>`;
+        logsConsole.scrollTop = logsConsole.scrollHeight;
+
+        tempVal.textContent = "68.2°C (OVERHEAT)";
+        syncVal.textContent = "0.0% (SHUTDOWN)";
+        effVal.textContent = "0.000% (STANDBY)";
+        
+        simGraphic.style.borderColor = 'var(--accent-violet)';
+      }
+    }
+
+    function resetSimConsole() {
+      if (logsConsole) {
+        logsConsole.innerHTML = `[${new Date().toLocaleTimeString()}] SIMULATION METRICS TRACE FLUSHED. REBOOTING telemetry stream...`;
+        simGraphic.style.borderColor = 'var(--accent-cyan)';
+      }
+    }
+  </script>
+</body>
+</html>

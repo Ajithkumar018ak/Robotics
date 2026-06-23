@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Client Dashboard | Stackly Robotics</title>
+
+<link rel="stylesheet" href="./css/client-dashboard.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+
+<div class="logo" onclick="showDashboard()">
+    <img src="assets/logo.webp" alt="Logo">
+</div>
+
+  <ul class="sidebar-menu">
+    <li class="active" data-page="dashboard">Dashboard</li>
+    <li data-page="projects">Projects</li>
+    <li data-page="automation">Automation</li>
+    <li data-page="analytics">Analytics</li>
+    <li data-page="reports">Reports</li>
+    <li data-page="support">Support</li>
+    <li id="logoutBtn" class="logout">
+      <i class="fas fa-sign-out-alt"></i> Logout
+    </li>
+  </ul>
+
+</aside>
+
+<!-- MAIN -->
+<main class="main-content">
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div>
+      <h1>Client Dashboard</h1>
+      <p>Welcome Back, John Anderson</p>
+    </div>
+
+    
+  </header>
+
+  <!-- ================= DASHBOARD ================= -->
+  <section id="dashboard" class="content-section">
+
+    <section class="hero-section">
+
+      <div class="hero-content">
+        <span class="hero-badge">Robotics Control Center</span>
+
+        <h2>Intelligent Automation Platform</h2>
+
+        <p>
+          Real-time insights into robotics, AI systems and smart manufacturing.
+        </p>
+
+        <div class="hero-buttons">
+          <button onclick="open404Page()">View Reports</button>
+          <button onclick="open404Page()">Contact Engineer</button>
+          
+        </div>
+      </div>
+
+    
+    </section>
+
+    <section class="stats-grid">
+
+      <div class="stat-card">
+        <i class="fas fa-robot"></i>
+        <h3>128</h3>
+        <p>Active Robots</p>
+      </div>
+
+      <div class="stat-card">
+        <i class="fas fa-industry"></i>
+        <h3>98.7%</h3>
+        <p>Automation Efficiency</p>
+      </div>
+
+      <div class="stat-card">
+        <i class="fas fa-brain"></i>
+        <h3>3457</h3>
+        <p>AI Predictions</p>
+      </div>
+
+      <div class="stat-card">
+        <i class="fas fa-dollar-sign"></i>
+        <h3>$1.8M</h3>
+        <p>Cost Savings</p>
+      </div>
+
+    </section>
+
+  </section>
+
+ <!-- ================= PROJECTS ================= -->
+<section id="projects" class="content-section" style="display:none;">
+
+<h2>Our Robotics Projects</h2>
+
+
+
+<div class="hero-section inner-hero">
+
+ <div class="hero-image">
+    <img src="assets/p1.webp">
+</div>
+
+<div class="hero-content">
+ 
+
+<h3>Enterprise Robotics Solutions</h3>
+
+<p>
+Advanced robotics deployments across manufacturing,
+warehouse automation and industrial intelligence.
+</p>
+
+<ul>
+<li> AI Vision Inspection</li>
+<li> Automated Warehousing</li>
+<li> Smart Manufacturing</li>
+<li>Predictive Maintenance</li>
+</ul>
+
+</div>
+
+</div>
+
+<div class="project-grid">
+
+<div class="project-card">
+<img src="assets/p2.webp">
+<h3>Warehouse Automation</h3>
+<p>
+Autonomous robots handling inventory and logistics.
+</p>
+</div>
+
+<div class="project-card">
+<img src="assets/p3.webp">
+<h3>AI Vision System</h3>
+<p>
+High-speed inspection using machine learning.
+</p>
+</div>
+
+<div class="project-card">
+<img src="assets/p4.webp">
+<h3>Smart Factory</h3>
+<p>
+Connected Industry 4.0 ecosystem.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= AUTOMATION ================= -->
+
+<section id="automation" class="content-section" style="display:none;">
+
+<h2>Smart Automation Platform</h2>
+
+<img class="banner-img"
+src="assets/a1 (1).webp">
+
+<p>
+Build scalable intelligent workflows with AI-powered
+automation systems.
+</p>
+
+<div class="project-grid">
+
+<div class="project-card">
+<img src="assets/a1 (2).webp">
+<h3>Workflow Automation</h3>
+<p>
+Reduce repetitive operations.
+</p>
+</div>
+
+<div class="project-card">
+<img src="assets/a1 (3).webp">
+<h3>Task Scheduling</h3>
+<p>
+Automated execution engine.
+</p>
+</div>
+
+<div class="project-card">
+<img src="assets/a1 (4).webp">
+<h3>System Integration</h3>
+<p>
+Connect multiple platforms.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ANALYTICS ================= -->
+
+<section id="analytics" class="content-section" style="display:none;">
+
+<h2>Data Analytics Center</h2>
+
+<img class="banner-img"
+src="assets/data analytics.webp">
+
+<div class="stats-grid">
+
+<div class="stat-card">
+<h3>18.7M</h3>
+<p>Data Points Processed</p>
+</div>
+
+<div class="stat-card">
+<h3>98.6%</h3>
+<p>Prediction Accuracy</p>
+</div>
+
+<div class="stat-card">
+<h3>67</h3>
+<p>Connected Factories</p>
+</div>
+
+<div class="stat-card">
+<h3>247ms</h3>
+<p>Response Time</p>
+</div>
+
+</div>
+
+<div class="project-card">
+
+<h3>Real-Time Insights</h3>
+
+<p>
+Track performance, machine health,
+energy efficiency and predictive alerts.
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= REPORTS ================= -->
+
+<section id="reports" class="content-section" style="display:none;">
+
+<h2>Reports & Documentation</h2>
+
+<img class="banner-img"
+src="assets/suppoert (2).webp">
+
+<div class="project-grid">
+
+<div class="project-card">
+
+<h3>Performance Reports</h3>
+<p>
+Daily & monthly production reports.
+</p>
+</div>
+
+<div class="project-card">
+
+<h3>Trend Analysis</h3>
+<p>
+Historical analytics with forecasting.
+</p>
+</div>
+
+<div class="project-card">
+
+<h3>Export Center</h3>
+<p>
+Generate PDF and Excel reports.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= SUPPORT ================= -->
+
+<section id="support" class="content-section" style="display:none;">
+
+<h2>24×7 Engineering Support</h2>
+
+<img class="banner-img"
+src="assets/suppoert (1).webp">
+
+<div class="project-grid">
+
+<div class="project-card">
+
+<h3>Live Support</h3>
+<p>
+Connect instantly with engineers.
+</p>
+</div>
+
+<div class="project-card">
+
+<h3>Maintenance</h3>
+<p>
+Monitor servicing & updates.
+</p>
+</div>
+
+<div class="project-card">
+
+<h3>Emergency Assistance</h3>
+<p>
+Rapid incident response team.
+</p>
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<script src="./js/client-dashboard.js"></script>
+
+</body>
+</html>
