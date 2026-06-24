@@ -2966,32 +2966,6 @@ footer {
     0 0 30px rgba(0,240,255,.2);
 }
 
-/* Individual Brand Hover */
-
-.social-icons a:nth-child(1):hover{
-    color:#1877f2;
-    border-color:#1877f2;
-    box-shadow:0 0 20px #1877f2;
-}
-
-.social-icons a:nth-child(2):hover{
-    color:#e4405f;
-    border-color:#e4405f;
-    box-shadow:0 0 20px #e4405f;
-}
-
-.social-icons a:nth-child(3):hover{
-    color:#0a66c2;
-    border-color:#0a66c2;
-    box-shadow:0 0 20px #0a66c2;
-}
-
-.social-icons a:nth-child(4):hover{
-    color:#ff0000;
-    border-color:#ff0000;
-    box-shadow:0 0 20px #ff0000;
-}
-
 .hero-section{
     position:relative;
     overflow:hidden;
@@ -3874,4 +3848,464 @@ footer {
         transform:scale(1.4);
         opacity:0;
     }
+}
+
+/* Remember Me */
+.remember-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    cursor: pointer;
+    letter-spacing: normal;
+    text-transform: none;
+    transform: none;
+}
+
+.remember-me input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    cursor: pointer;
+    transform: none;
+    accent-color: #00e5ff;
+}
+
+.remember-me span {
+    display: inline-block;
+    transform: none;
+    writing-mode: horizontal-tb;
+    text-transform: none;
+    letter-spacing: 0;
+    white-space: nowrap;
+}
+
+/* Hamburger Menu Button */
+.mobile-toggle {
+    display: none;
+    width: 46px;
+    height: 46px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+
+    cursor: pointer;
+    padding: 0;
+    transition: all .3s ease;
+}
+
+.mobile-toggle span {
+    width: 20px;
+    height: 2px;
+    background: #fff;
+    border-radius: 10px;
+    display: block;
+    transition: .3s ease;
+}
+
+.mobile-toggle:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-2px);
+}
+
+/* Mobile Only */
+@media (max-width: 991px) {
+
+    .mobile-toggle {
+        display: flex;
+    }
+
+    .nav-menu,
+    .nav-actions {
+        display: none;
+    }
+
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+
+.nav-container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+
+
+.mobile-toggle{
+    margin-left:auto;
+}
+
+.mobile-overlay{
+    position: fixed;
+    top: 0;
+    right: -280px !important;
+    left: auto !important;
+
+    width: 280px;
+    height: 100vh;
+
+    background: #050814;
+    z-index: 9999;
+    transition: all .35s ease;
+}
+
+.mobile-overlay.active{
+    right: 0 !important;
+    left: auto !important;
+}
+.mobile-menu-items{
+    padding:90px 25px 30px;
+}
+
+.menu-backdrop{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.6);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s;
+    z-index:9998;
+}
+
+.menu-backdrop.active{
+    opacity:1;
+    visibility:visible;
+}
+
+.mobile-close{
+    position:absolute;
+    top:20px;
+    right:20px;
+}
+
+
+.menu-backdrop{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.6);
+    z-index: 9998;
+}
+
+html.menu-open,
+body.menu-open{
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
+.menu-open .hero-section,
+.menu-open section{
+    pointer-events: none;
+}
+
+.mobile-overlay,
+.menu-backdrop{
+    pointer-events: auto;
+}
+
+/* FORCE MOBILE SIDEBAR */
+
+.mobile-overlay{
+    top:0 !important;
+    right:-300px !important;
+    left:auto !important;
+
+    width:300px !important;
+    height:100vh !important;
+
+    display:block !important;
+
+    opacity:1 !important;
+    visibility:visible !important;
+
+    background:#050814 !important;
+
+    overflow-y:auto !important;
+
+    transition:0.35s ease !important;
+}
+
+.mobile-overlay.active{
+    right:0 !important;
+}
+
+html.menu-open,
+body.menu-open {
+    overflow: hidden !important;
+    height: 100vh !important;
+    touch-action: none;
+}
+
+
+body.menu-open{
+    overflow:hidden !important;
+    position:fixed;
+    width:100%;
+}
+
+
+.mobile-overlay{
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 320px;
+    height: 100vh;
+
+    background: rgba(8,12,25,.85);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    border-left: 1px solid rgba(255,255,255,.08);
+
+    transition: right .4s cubic-bezier(.22,.61,.36,1);
+
+    z-index: 9999;
+}
+
+.mobile-overlay.active{
+    right: 0;
+}
+
+.menu-backdrop{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(10px);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.35s ease;
+
+    z-index:9998;
+}
+
+.menu-backdrop.active{
+    opacity:1;
+    visibility:visible;
+}
+
+
+/* MOBILE MENU */
+.mobile-overlay{
+    position: fixed;
+    top: 0;
+    right: -280px;   /* right side hidden */
+    width: 280px;
+    height: 100vh;
+    background: rgba(5,8,20,0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 9999;
+    transition: right .35s ease;
+    overflow-y: auto;
+    padding-top: 90px;
+}
+
+.mobile-overlay.active{
+    right: 0;
+}
+
+.mobile-menu-items{
+    list-style: none;
+    padding: 0 25px;
+    margin: 0;
+}
+
+.mobile-menu-items li{
+    margin-bottom: 18px;
+}
+
+.mobile-link{
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 0;
+}
+
+/* Hamburger */
+.mobile-toggle{
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    z-index: 10000;
+}
+
+.mobile-toggle span{
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    margin: 5px auto;
+    transition: .3s;
+}
+
+
+
+/* Mobile View */
+@media(max-width:991px){
+
+    .nav-menu,
+    .nav-cta{
+        display:none;
+    }
+
+    .mobile-toggle{
+        display:block;
+    }
+
+    .nav-container{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:0 18px;
+        min-height:70px;
+    }
+}
+
+/* BACKGROUND SCROLL LOCK */
+html.menu-open,
+body.menu-open{
+    overflow:hidden !important;
+    height:100vh;
+}
+
+
+
+.mobile-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    background: rgba(5,10,20,.98);
+    backdrop-filter: blur(20px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 99999;
+
+    transform: translateX(100%);
+    transition: transform .4s ease;
+}
+
+.mobile-overlay.active{
+    transform: translateX(0);
+}
+
+
+/* ==========================
+   CONTACT PAGE MOBILE FIX
+========================== */
+
+@media (max-width: 768px) {
+
+  .contact-layout{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+  }
+
+  .contact-info-panel,
+  .glass-card{
+    width:100%;
+    max-width:100%;
+  }
+
+  .console-form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+  }
+
+  .console-form .form-group{
+    width:100%;
+  }
+
+  .console-form input,
+  .console-form select,
+  .console-form textarea{
+    width:100%;
+    box-sizing:border-box;
+    font-size:14px;
+  }
+
+  .glass-card{
+    padding:20px;
+  }
+
+  .hero-title{
+    font-size:2rem !important;
+  }
+
+  .hero-desc{
+    font-size:14px;
+  }
+
+  .cyber-btn{
+    width:100%;
+  }
+
+}
+
+
+.mobile-overlay{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 320px;
+    height: 100vh;
+    z-index: 9999;
+    transition: .4s ease;
+}
+
+.mobile-overlay.active{
+    right: 0;
+}
+
+.menu-backdrop{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.6);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    z-index: 9998;
+}
+
+.menu-backdrop.active{
+    opacity: 1;
+    visibility: visible;
 }

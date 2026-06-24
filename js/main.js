@@ -200,20 +200,7 @@ function initCanvasBackground() {
 }
 
 /* --- Sticky & Mobile Navbar Controls --- */
-function initNavbar() {
-  const header = document.querySelector('header.header-sticky');
-  const toggle = document.querySelector('.mobile-toggle');
-  const overlay = document.querySelector('.mobile-overlay');
-  
-  if (header) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
-  }
+
 
   // Active link identification
   const currentPath = window.location.pathname;
@@ -228,27 +215,6 @@ function initNavbar() {
     }
   });
 
-  // Mobile Menu Triggers
-  if (toggle && overlay) {
-    toggle.addEventListener('click', () => {
-      const isOpen = overlay.classList.toggle('active');
-      
-      // Update hamburger animations
-      const spans = toggle.querySelectorAll('span');
-      if (isOpen) {
-        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-        document.body.style.overflow = 'hidden'; // Scroll lock
-      } else {
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
-        document.body.style.overflow = '';
-      }
-    });
-  }
-}
 
 /* --- 3D Card Tilt Interaction --- */
 function initTiltCards() {
@@ -735,23 +701,73 @@ document.addEventListener("keydown", function (e) {
     }
 });
 
-// ===============================
-// MOBILE MENU
-// ===============================
+/* --- Sticky & Mobile Navbar Controls --- */
+function initNavbar() {
 
-const menuBtn =
-    document.querySelector(".menu-toggle");
+    const header = document.querySelector('.header-sticky');
+    const toggle = document.querySelector('.mobile-toggle');
+    const overlay = document.querySelector('.mobile-overlay');
 
-const navMenu =
-    document.querySelector(".nav-links");
+    // Sticky Header
+    if (header) {
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 20);
+        });
+    }
 
-if (menuBtn && navMenu) {
+   // Mobile Menu
+if (toggle && overlay) {
 
-    menuBtn.addEventListener("click", () => {
+    const backdrop = document.querySelector('.menu-backdrop');
 
-        navMenu.classList.toggle("active");
+    toggle.addEventListener('click', () => {
+
+        overlay.classList.toggle('active');
+        toggle.classList.toggle('active');
+
+        if (backdrop) {
+            backdrop.classList.toggle('active');
+        }
+
+        document.body.style.overflow =
+            overlay.classList.contains('active')
+            ? 'hidden'
+            : 'auto';
     });
+
+    // Close menu when link clicked
+    document.querySelectorAll('.mobile-link').forEach(link => {
+
+        link.addEventListener('click', () => {
+
+            overlay.classList.remove('active');
+            toggle.classList.remove('active');
+
+            if (backdrop) {
+                backdrop.classList.remove('active');
+            }
+
+            document.body.style.overflow = 'auto';
+
+        });
+
+    });
+
+    // Close when backdrop clicked
+    if (backdrop) {
+
+        backdrop.addEventListener('click', () => {
+
+            overlay.classList.remove('active');
+            toggle.classList.remove('active');
+            backdrop.classList.remove('active');
+
+            document.body.style.overflow = 'auto';
+
+        });
+
+    }
+
 }
 
-
-
+}
