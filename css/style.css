@@ -495,45 +495,36 @@ header.header-sticky.scrolled .nav-container {
 
 /* CTA Header Button */
 .nav-cta {
-  display: inline-block;
-  padding: 10px 22px;
-  font-family: var(--font-header);
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--bg-dark);
-  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-violet));
-  border: none;
-  border-radius: 4px;
-  text-decoration: none;
-  box-shadow: 0 4px 15px rgba(0, 240, 255, 0.25);
-  transition: var(--transition-smooth);
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 16px;
+
+    height: 34px;        /* 🔥 fixed height */
+    min-width: 120px;    /* 🔥 fixed width feel */
+    width: auto;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #fff;
+    text-decoration: none;
+
+    background: linear-gradient(90deg, #00f0ff, #7b2cff);
+
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+
+    transition: all 0.25s ease;
+
+    cursor: pointer;
+    white-space: nowrap;
 }
 
-.nav-cta::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, var(--accent-violet), var(--accent-cyan));
-  transition: var(--transition-smooth);
-  z-index: -1;
-}
 
-.nav-cta:hover {
-  color: var(--text-primary);
-  box-shadow: 0 4px 20px rgba(171, 32, 253, 0.45);
-}
-
-.nav-cta:hover::before {
-  left: 0;
-}
 
 /* Mobile Toggle */
 .mobile-toggle {
@@ -4601,23 +4592,9 @@ html.sidebar-open{
     right:0;
 }
 
-body.sidebar-open{
-    overflow:hidden;
-}
 
 
 
-body.no-scroll {
-    overflow: hidden;
-    height: 100vh;
-    touch-action: none;
-}
-
-html.sidebar-open,
-body.sidebar-open{
-    overflow:hidden !important;
-    height:100%;
-}
 
 
 
@@ -4628,3 +4605,14 @@ body.sidebar-open{
 .mobile-overlay.active{
     pointer-events: auto;
 }
+
+
+body.no-scroll {
+    overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+
+

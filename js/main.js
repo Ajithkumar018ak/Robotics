@@ -785,32 +785,30 @@ const mobileSidebar = document.querySelector(".mobile-sidebar");
 const mobileOverlay = document.querySelector(".mobile-overlay");
 const closeSidebar = document.querySelector(".close-sidebar");
 
+function lockScroll() {
+    document.body.classList.add("no-scroll");
+}
+
+function unlockScroll() {
+    document.body.classList.remove("no-scroll");
+}
+
 function openSidebar() {
     mobileSidebar.classList.add("active");
     mobileOverlay.classList.add("active");
-
-    document.documentElement.style.overflow = "hidden";
-    document.body.style.overflow = "hidden";
+    lockScroll();
 }
 
 function closeMobileSidebar() {
     mobileSidebar.classList.remove("active");
     mobileOverlay.classList.remove("active");
-
-    document.documentElement.style.overflow = "";
-    document.body.style.overflow = "";
+    unlockScroll();
 }
 
-mobileToggle.addEventListener("click", openSidebar);
-closeSidebar.addEventListener("click", closeMobileSidebar);
+mobileToggle?.addEventListener("click", openSidebar);
+closeSidebar?.addEventListener("click", closeMobileSidebar);
 
-// Overlay மட்டும் click செய்தால் close
-mobileOverlay.addEventListener("click", function (e) {
-    if (e.target === mobileOverlay) {
-        closeMobileSidebar();
-    }
-});
-
+mobileOverlay?.addEventListener("click", closeMobileSidebar);
 // Login Modal
 function openAuth() {
     document.getElementById("loginModal").style.display = "flex";
