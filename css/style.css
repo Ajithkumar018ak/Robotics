@@ -4607,3 +4607,24 @@ body.sidebar-open{
 
 
 
+body.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+    touch-action: none;
+}
+
+html.sidebar-open,
+body.sidebar-open{
+    overflow:hidden !important;
+    height:100%;
+}
+
+
+
+.mobile-overlay{
+    pointer-events: none;
+}
+
+.mobile-overlay.active{
+    pointer-events: auto;
+}

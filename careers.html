@@ -115,8 +115,16 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       </nav>
 
       <!-- CTA Button -->
-      <a href="contact.html" class="nav-cta">Initiate Setup</a>
+      
+<div class="nav-actions">
 
+   <a href="#" class="mobile-login-btn" onclick="openAuth()">Login</a>
+
+    <a href="contact.html" class="nav-cta">
+        Initiate Setup
+    </a>
+
+</div>
       <!-- Mobile Burger -->
       <button class="mobile-toggle" aria-label="Toggle Navigation">
         <span></span>
@@ -513,6 +521,119 @@ onclick="window.location.href='404.html'">
     </div>
 
 </footer>
+
+
+<!-- LOGIN MODAL -->
+<div class="auth-modal" id="loginModal">
+
+    <div class="auth-box">
+
+        <div class="auth-left">
+
+            <span class="close" onclick="closeAuth()">&times;</span>
+
+            <h2>Welcome Back</h2>
+
+            <!-- LOGIN -->
+            <div id="loginBox">
+
+                <select id="loginRole">
+                    <option value="Client">Client</option>
+                    <option value="Admin">Admin</option>
+                </select>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Email Address">
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Password">
+
+                <div class="remember-wrap">
+                    <label class="remember-me">
+                        <input type="checkbox" id="rememberMe">
+                        <span>Remember Me</span>
+                    </label>
+                </div>
+
+                <button onclick="loginUser()">
+                    Log In
+                </button>
+
+                <p onclick="showForgot()">
+                    Forgot Password?
+                </p>
+
+                <p onclick="showSignup()">
+                    Don't have an account? Sign Up
+                </p>
+
+            </div>
+
+            <!-- SIGNUP -->
+            <div id="signupBox" style="display:none;">
+
+                <input
+                    type="text"
+                    id="signupName"
+                    placeholder="Full Name">
+
+                <input
+                    type="email"
+                    id="signupEmail"
+                    placeholder="Email Address">
+
+                <input
+                    type="password"
+                    id="signupPassword"
+                    placeholder="Password">
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm Password">
+
+                <select id="signupRole">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+
+                <button onclick="signupUser()">
+                    Create Account
+                </button>
+
+                <p onclick="showLogin()">
+                    Back To Login
+                </p>
+
+            </div>
+
+            <!-- FORGOT PASSWORD -->
+            <div id="forgotBox" style="display:none;">
+
+                <input
+                    type="email"
+                    id="forgotEmail"
+                    placeholder="Enter Your Email">
+
+                <button onclick="forgotPassword()">
+                    Reset Password
+                </button>
+
+                <p onclick="showLogin()">
+                    Back To Login
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
   <!-- Page Transition Overlay -->
   <div id="page-transition-overlay"></div>
 

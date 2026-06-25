@@ -464,15 +464,19 @@ gsap.utils.toArray("section").forEach(section => {
 const hero = document.querySelector(".hero-section");
 const visual = document.querySelector(".hero-visual");
 
-hero.addEventListener("mousemove", e => {
+if (hero && visual) {
 
-  const x = (window.innerWidth / 2 - e.clientX) / 25;
-  const y = (window.innerHeight / 2 - e.clientY) / 25;
+    hero.addEventListener("mousemove", (e) => {
 
-  visual.style.transform =
-    `translate(${x}px, ${y}px)`;
+        const x = (window.innerWidth / 2 - e.clientX) / 25;
+        const y = (window.innerHeight / 2 - e.clientY) / 25;
 
-});
+        visual.style.transform =
+            `translate(${x}px, ${y}px)`;
+
+    });
+
+}
 
 document.querySelectorAll(".cyber-btn").forEach(btn => {
 
@@ -781,19 +785,30 @@ const mobileSidebar = document.querySelector(".mobile-sidebar");
 const mobileOverlay = document.querySelector(".mobile-overlay");
 const closeSidebar = document.querySelector(".close-sidebar");
 
-mobileToggle.addEventListener("click", () => {
+function openSidebar() {
     mobileSidebar.classList.add("active");
     mobileOverlay.classList.add("active");
-});
 
-closeSidebar.addEventListener("click", () => {
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+}
+
+function closeMobileSidebar() {
     mobileSidebar.classList.remove("active");
     mobileOverlay.classList.remove("active");
-});
 
-mobileOverlay.addEventListener("click", () => {
-    mobileSidebar.classList.remove("active");
-    mobileOverlay.classList.remove("active");
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+}
+
+mobileToggle.addEventListener("click", openSidebar);
+closeSidebar.addEventListener("click", closeMobileSidebar);
+
+// Overlay மட்டும் click செய்தால் close
+mobileOverlay.addEventListener("click", function (e) {
+    if (e.target === mobileOverlay) {
+        closeMobileSidebar();
+    }
 });
 
 // Login Modal
@@ -808,3 +823,5 @@ function openAuth() {
 function closeAuth() {
     document.getElementById("loginModal").style.display = "none";
 }
+
+
