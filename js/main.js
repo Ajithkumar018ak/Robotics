@@ -771,3 +771,70 @@ if (toggle && overlay) {
 }
 
 }
+
+
+
+
+// Mobile Sidebar
+const mobileToggle = document.querySelector(".mobile-toggle");
+const mobileSidebar = document.querySelector(".mobile-sidebar");
+const mobileOverlay = document.querySelector(".mobile-overlay");
+const closeSidebar = document.querySelector(".close-sidebar");
+
+mobileToggle.addEventListener("click", () => {
+    mobileSidebar.classList.add("active");
+    mobileOverlay.classList.add("active");
+});
+
+closeSidebar.addEventListener("click", () => {
+    mobileSidebar.classList.remove("active");
+    mobileOverlay.classList.remove("active");
+});
+
+mobileOverlay.addEventListener("click", () => {
+    mobileSidebar.classList.remove("active");
+    mobileOverlay.classList.remove("active");
+});
+
+// Login Modal
+function openAuth() {
+    document.getElementById("loginModal").style.display = "flex";
+
+    // Sidebar close after login click
+    mobileSidebar.classList.remove("active");
+    mobileOverlay.classList.remove("active");
+}
+
+function closeAuth() {
+    document.getElementById("loginModal").style.display = "none";
+}
+
+
+let scrollPosition = 0;
+
+mobileToggle.addEventListener("click", () => {
+
+    scrollPosition = window.pageYOffset;
+
+    mobileSidebar.classList.add("active");
+    mobileOverlay.classList.add("active");
+
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.width = "100%";
+});
+
+function closeSidebarMenu() {
+
+    mobileSidebar.classList.remove("active");
+    mobileOverlay.classList.remove("active");
+
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.width = "";
+
+    window.scrollTo(0, scrollPosition);
+}
+
+closeSidebar.addEventListener("click", closeSidebarMenu);
+mobileOverlay.addEventListener("click", closeSidebarMenu);
